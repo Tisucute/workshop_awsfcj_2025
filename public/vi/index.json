@@ -1,24 +1,45 @@
 [
 {
 	"uri": "//localhost:1313/vi/",
-	"title": "Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowfake",
+	"title": "Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud",
 	"tags": [],
 	"description": "",
-	"content": "Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowfake Tổng quan Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Snowflake và AWS Cloud.\nNội dung Giới thiệu Sơ đồ Kiến trúc Các bước chuẩn bị "
+	"content": "Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud Tổng quan Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về AWS Cloud.\nNội dung Giới thiệu Sơ đồ Kiến trúc Giới thiệu tập dữ liệu Chuẩn bị môi trường AWS Ingest dữ liệu vào S3 Xử lý và chuyển đổi dữ liệu với Glue Tự động hóa pipeline với Lambda \u0026amp; Step Functions Nạp dữ liệu vào Redshift Trực quan hóa với QuickSight Giám sát, bảo mật và tối ưu Xóa tài nguyên AWS sau khi hoàn thành Tổng kết và mở rộng "
 },
 {
 	"uri": "//localhost:1313/vi/1-introduce/",
 	"title": "Giới thiệu",
 	"tags": [],
 	"description": "",
-	"content": "\rNguyễn Ngọc Anh Thư – 22133059\rTrường Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh\rThiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake\rThiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake\nTrong thời đại dữ liệu hiện nay, việc xử lý, lưu trữ và khai thác dữ liệu một cách hiệu quả đóng vai trò then chốt trong hoạt động vận hành và ra quyết định của doanh nghiệp. Đề tài “Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake” được thực hiện nhằm xây dựng một quy trình hiện đại và linh hoạt để thu thập, xử lý, lưu trữ và phân tích dữ liệu từ nhiều nguồn khác nhau.\rDự án tận dụng sức mạnh của nền tảng Amazon Web Services (AWS) – dịch vụ điện toán đám mây hàng đầu thế giới – kết hợp với Snowflake, một hệ quản trị dữ liệu dạng Data Warehouse hiện đại, hỗ trợ mở rộng theo chiều ngang, tách biệt tài nguyên compute và storage.\nCụ thể, hệ thống Data Pipeline được triển khai sẽ bao gồm:\nThu thập dữ liệu thô từ nguồn đầu vào như file .csv, API hoặc luồng streaming.\rLưu trữ tạm thời trên Amazon S3 theo kiến trúc Data Lake.\rTích hợp xử lý tự động thông qua AWS Lambda, Glue hoặc Airflow.\rNạp dữ liệu vào Snowflake theo mô hình star schema (bảng dim và fact).\rKết nối với Power BI/Superset để trực quan hóa và phân tích.\rThông qua đề tài này, người thực hiện hướng đến mục tiêu:\nNắm bắt kiến trúc hiện đại trong triển khai hệ thống xử lý dữ liệu phân tán.\rVận dụng kỹ năng cloud computing trên nền tảng AWS.\rÁp dụng mô hình dữ liệu và kỹ thuật ELT/ETL trong môi trường thực tế.\r"
+	"content": "\rNguyễn Ngọc Anh Thư – 22133059\rTrường Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh\rThiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud\rTrong thời đại dữ liệu hiện nay, việc xử lý, lưu trữ và khai thác dữ liệu một cách hiệu quả đóng vai trò then chốt trong hoạt động vận hành và ra quyết định của doanh nghiệp. Đề tài “Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud ” được thực hiện nhằm xây dựng một quy trình hiện đại và linh hoạt để thu thập, xử lý, lưu trữ và phân tích dữ liệu từ nhiều nguồn khác nhau.\rDự án tận dụng sức mạnh của nền tảng Amazon Web Services (AWS) – dịch vụ điện toán đám mây hàng đầu thế giới – kết hợp với Snowflake, một hệ quản trị dữ liệu dạng Data Warehouse hiện đại, hỗ trợ mở rộng theo chiều ngang, tách biệt tài nguyên compute và storage.\nCụ thể, hệ thống Data Pipeline được triển khai sẽ bao gồm:\nThu thập dữ liệu thô từ nguồn đầu vào như file .csv, API hoặc luồng streaming.\rLưu trữ tạm thời trên Amazon S3 theo kiến trúc Data Lake.\rTích hợp xử lý tự động thông qua AWS Lambda, Glue hoặc Airflow.\rNạp dữ liệu vào Snowflake theo mô hình star schema (bảng dim và fact).\rKết nối với Power BI/Superset để trực quan hóa và phân tích.\rThông qua đề tài này, người thực hiện hướng đến mục tiêu:\nNắm bắt kiến trúc hiện đại trong triển khai hệ thống xử lý dữ liệu phân tán.\rVận dụng kỹ năng cloud computing trên nền tảng AWS.\rÁp dụng mô hình dữ liệu và kỹ thuật ELT/ETL trong môi trường thực tế.\r"
+},
+{
+	"uri": "//localhost:1313/vi/2-architecture/2.1-tools/",
+	"title": "Các công cụ được sử dụng",
+	"tags": [],
+	"description": "",
+	"content": "Các công cụ được sử dụng Trong quá trình xây dựng Data Pipeline cho tập dữ liệu Olist trên AWS, các công cụ và dịch vụ sau được sử dụng:\nAmazon S3: Dịch vụ lưu trữ đối tượng, dùng để lưu trữ dữ liệu gốc (raw data) và dữ liệu đã xử lý (processed data). AWS Glue: Dịch vụ ETL serverless, hỗ trợ crawl schema, chuyển đổi và xử lý dữ liệu tự động. AWS Lambda: Chạy các đoạn mã nhỏ để tự động hóa các tác vụ như kích hoạt Glue jobs khi có dữ liệu mới. AWS Step Functions: Điều phối (orchestrate) các bước trong pipeline, đảm bảo các tác vụ diễn ra theo đúng trình tự. Amazon Redshift: Kho dữ liệu phân tích (data warehouse), lưu trữ dữ liệu đã xử lý để phục vụ truy vấn và phân tích. Amazon QuickSight: Công cụ trực quan hóa dữ liệu, xây dựng dashboard và báo cáo phân tích. AWS IAM: Quản lý quyền truy cập và bảo mật cho các dịch vụ và dữ liệu trên AWS. Amazon CloudWatch: Giám sát, thu thập log và cảnh báo cho các dịch vụ AWS, giúp theo dõi pipeline và xử lý sự cố. AWS CloudTrail: Theo dõi, ghi lại các hoạt động API trên tài khoản AWS để đảm bảo tính minh bạch và bảo mật. AWS SNS (Simple Notification Service): Gửi thông báo tự động khi pipeline hoàn thành hoặc gặp lỗi. AWS KMS (Key Management Service): Quản lý và mã hóa dữ liệu, đảm bảo an toàn thông tin trong quá trình lưu trữ và truyền tải. AWS DataBrew: Hỗ trợ làm sạch, chuẩn hóa dữ liệu mà không cần viết code, giúp tăng tốc quá trình chuẩn bị dữ liệu. AWS Athena: Truy vấn dữ liệu trực tiếp trên S3 bằng SQL, hỗ trợ kiểm tra nhanh dữ liệu trước khi nạp vào Redshift. Các công cụ này kết hợp với nhau tạo thành một hệ thống xử lý dữ liệu hiện đại, tự động hóa, bảo mật và dễ dàng mở rộng cho các nhu cầu phân\n"
 },
 {
 	"uri": "//localhost:1313/vi/2-architecture/",
-	"title": "Sơ đồ kiến trúc",
+	"title": "Kiến trúc",
 	"tags": [],
 	"description": "",
-	"content": "Sơ đồ Kiến trúc "
+	"content": "Kiến trúc "
+},
+{
+	"uri": "//localhost:1313/vi/2-architecture/2.2-architecture/",
+	"title": "Xây dựng Sơ đồ Kiến trúc",
+	"tags": [],
+	"description": "",
+	"content": "Sơ đồ Kiến trúc Để xây dựng một hệ thống Data Pipeline hiện đại, tự động hóa và dễ mở rộng cho tập dữ liệu Olist trên AWS, việc thiết kế kiến trúc tổng thể là bước quan trọng nhằm đảm bảo dữ liệu được thu thập, xử lý, lưu trữ và phân tích một cách hiệu quả, bảo mật và tối ưu chi phí.\nKiến trúc này sử dụng hoàn toàn các dịch vụ AWS như Amazon S3, AWS Glue, AWS Lambda, AWS Step Functions, Amazon Redshift, Amazon QuickSight cùng các dịch vụ hỗ trợ như IAM, CloudWatch, CloudTrail, SNS, KMS, DataBrew và Athena. Mỗi dịch vụ đảm nhận một vai trò riêng biệt trong pipeline, từ lưu trữ, xử lý, tự động hóa, bảo mật đến trực quan hóa dữ liệu. Dữ liệu Olist được ingest vào S3, xử lý và chuyển đổi qua Glue, tự động hóa bằng Lambda và Step Functions, lưu trữ phân tích trên Redshift và trực quan hóa qua QuickSight. Các dịch vụ giám sát, bảo mật và thông báo giúp hệ thống vận hành ổn định, an toàn.\nSơ đồ dưới đây minh họa tổng thể kiến trúc hệ thống trên AWS: "
+},
+{
+	"uri": "//localhost:1313/vi/3-data/",
+	"title": "Tập dữ liệu được sử dụng",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu về tập dữ liệu thương mại điện tử Olist Tập dữ liệu Olist là một bộ dữ liệu thương mại điện tử nổi tiếng của Brazil, được thu thập từ nền tảng Olist – một marketplace kết nối các nhà bán lẻ nhỏ với khách hàng trên toàn quốc. Bộ dữ liệu này bao gồm thông tin chi tiết về các đơn hàng, sản phẩm, khách hàng, người bán, thanh toán, đánh giá và vận chuyển trong nhiều năm hoạt động của Olist.\nTập dữ liệu Olist thường được sử dụng trong các bài toán phân tích dữ liệu, khai phá dữ liệu, xây dựng hệ thống gợi ý, dự báo nhu cầu, phân tích hành vi khách hàng và các ứng dụng học máy khác. Với cấu trúc dữ liệu đa dạng, thực tế và đầy đủ, Olist là nguồn dữ liệu lý tưởng để thực hành và nghiên cứu về lĩnh vực thương mại điện tử.\nMột số bảng dữ liệu chính trong Olist bao gồm:\nThông tin đơn hàng (orders) Thông tin sản phẩm (products) Thông tin khách hàng (customers) Thông tin người bán (sellers) Đánh giá đơn hàng (order reviews) Thanh toán (order payments) Vận chuyển (order items, geolocation) Tập dữ liệu này giúp người dùng hiểu rõ hơn về hoạt động thương mại điện tử tại Brazil và cung cấp nền tảng thực tiễn cho các dự án phân tích dữ liệu\n"
 },
 {
 	"uri": "//localhost:1313/vi/6-cleanup/",

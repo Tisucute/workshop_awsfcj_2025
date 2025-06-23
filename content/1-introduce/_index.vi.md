@@ -20,9 +20,9 @@ pre : " <b> 1. </b> "
   <div style="flex: 1;">
     <!-- Tiêu đề nổi bật -->
     <div style="background: #f5f7fa; padding: 15px 20px; border-left: 5px solid #2f80ed; margin-bottom: 20px;">
-      <strong style="font-size: 20px; color: #2f80ed;">Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake</strong>
+      <strong style="font-size: 20px; color: #2f80ed;">Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud</strong>
     <div style="text-align: justify; line-height: 1.8; font-size: 18px;">
-Trong thời đại dữ liệu hiện nay, việc xử lý, lưu trữ và khai thác dữ liệu một cách hiệu quả đóng vai trò then chốt trong hoạt động vận hành và ra quyết định của doanh nghiệp. Đề tài <strong>“Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake”</strong> được thực hiện nhằm xây dựng một quy trình hiện đại và linh hoạt để thu thập, xử lý, lưu trữ và phân tích dữ liệu từ nhiều nguồn khác nhau.
+Trong thời đại dữ liệu hiện nay, việc xử lý, lưu trữ và khai thác dữ liệu một cách hiệu quả đóng vai trò then chốt trong hoạt động vận hành và ra quyết định của doanh nghiệp. Đề tài <strong>“Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud ”</strong> được thực hiện nhằm xây dựng một quy trình hiện đại và linh hoạt để thu thập, xử lý, lưu trữ và phân tích dữ liệu từ nhiều nguồn khác nhau.
 
 Dự án tận dụng sức mạnh của nền tảng <strong>Amazon Web Services (AWS)</strong> – dịch vụ điện toán đám mây hàng đầu thế giới – kết hợp với <strong>Snowflake</strong>, một hệ quản trị dữ liệu dạng Data Warehouse hiện đại, hỗ trợ mở rộng theo chiều ngang, tách biệt tài nguyên compute và storage.
 
@@ -50,10 +50,9 @@ Thông qua đề tài này, người thực hiện hướng đến mục tiêu:
   
 </div>
 
-<!-- Hai logo bên dưới -->
+<!-- logo bên dưới -->
 <div style="position: bottom; height: 100px;">
   <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
-    <img src="/images/1.introduction/logo_snowflake.png" alt="Snowflake Logo" style="height: 100px;">
-    <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
   </div>
 </div>

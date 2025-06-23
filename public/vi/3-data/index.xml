@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tập dữ liệu được sử dụng on AWS System Manager</title>
+    <link>//localhost:1313/vi/3-data/</link>
+    <description>Recent content in Tập dữ liệu được sử dụng on AWS System Manager</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <atom:link href="//localhost:1313/vi/3-data/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
