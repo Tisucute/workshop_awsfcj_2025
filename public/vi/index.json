@@ -1,0 +1,43 @@
+[
+{
+	"uri": "//localhost:1313/vi/",
+	"title": "Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowfake",
+	"tags": [],
+	"description": "",
+	"content": "Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowfake Tổng quan Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Snowflake và AWS Cloud.\nNội dung Giới thiệu Sơ đồ Kiến trúc Các bước chuẩn bị "
+},
+{
+	"uri": "//localhost:1313/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "\rNguyễn Ngọc Anh Thư – 22133059\rTrường Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh\rThiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake\rThiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake\nTrong thời đại dữ liệu hiện nay, việc xử lý, lưu trữ và khai thác dữ liệu một cách hiệu quả đóng vai trò then chốt trong hoạt động vận hành và ra quyết định của doanh nghiệp. Đề tài “Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud và Snowflake” được thực hiện nhằm xây dựng một quy trình hiện đại và linh hoạt để thu thập, xử lý, lưu trữ và phân tích dữ liệu từ nhiều nguồn khác nhau.\rDự án tận dụng sức mạnh của nền tảng Amazon Web Services (AWS) – dịch vụ điện toán đám mây hàng đầu thế giới – kết hợp với Snowflake, một hệ quản trị dữ liệu dạng Data Warehouse hiện đại, hỗ trợ mở rộng theo chiều ngang, tách biệt tài nguyên compute và storage.\nCụ thể, hệ thống Data Pipeline được triển khai sẽ bao gồm:\nThu thập dữ liệu thô từ nguồn đầu vào như file .csv, API hoặc luồng streaming.\rLưu trữ tạm thời trên Amazon S3 theo kiến trúc Data Lake.\rTích hợp xử lý tự động thông qua AWS Lambda, Glue hoặc Airflow.\rNạp dữ liệu vào Snowflake theo mô hình star schema (bảng dim và fact).\rKết nối với Power BI/Superset để trực quan hóa và phân tích.\rThông qua đề tài này, người thực hiện hướng đến mục tiêu:\nNắm bắt kiến trúc hiện đại trong triển khai hệ thống xử lý dữ liệu phân tán.\rVận dụng kỹ năng cloud computing trên nền tảng AWS.\rÁp dụng mô hình dữ liệu và kỹ thuật ELT/ETL trong môi trường thực tế.\r"
+},
+{
+	"uri": "//localhost:1313/vi/2-architecture/",
+	"title": "Sơ đồ kiến trúc",
+	"tags": [],
+	"description": "",
+	"content": "Sơ đồ Kiến trúc "
+},
+{
+	"uri": "//localhost:1313/vi/6-cleanup/",
+	"title": "Dọn dẹp tài nguyên  ",
+	"tags": [],
+	"description": "",
+	"content": "Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng ta đã tạo trong bài thực hành này.\nXóa EC2 instance Truy cập giao diện quản trị dịch vụ EC2 Click Instances. Click chọn cả 2 instance Public Linux Instance và Private Windows Instance. Click Instance state. Click Terminate instance, sau đó click Terminate để xác nhận. Truy cập giao diện quản trị dịch vụ IAM Click Roles. Tại ô tìm kiếm , điền SSM. Click chọn SSM-Role. Click Delete, sau đó điền tên role SSM-Role và click Delete để xóa role. Click Users. Click chọn user Portfwd. Click Delete, sau đó điền tên user Portfwd và click Delete để xóa user. Xóa S3 bucket Truy cập giao diện quản trị dịch vụ System Manager - Session Manager. Click tab Preferences. Click Edit. Kéo chuột xuống dưới. Tại mục S3 logging. Bỏ chọn Enable để tắt tính năng logging. Kéo chuột xuống dưới. Click Save. Truy cập giao diện quản trị dịch vụ S3 Click chọn S3 bucket chúng ta đã tạo cho bài thực hành. ( Ví dụ : lab-fcj-bucket-0001 ) Click Empty. Điền permanently delete, sau đó click Empty để tiến hành xóa object trong bucket. Click Exit. Sau khi xóa hết object trong bucket, click Delete Điền tên S3 bucket, sau đó click Delete bucket để tiến hành xóa S3 bucket. Xóa các VPC Endpoint Truy cập vào giao diện quản trị dịch vụ VPC Click Endpoints. Chọn 4 endpoints chúng ta đã tạo cho bài thực hành bao gồm SSM, SSMMESSAGES, EC2MESSAGES, S3GW. Click Actions. Click Delete VPC endpoints. Tại ô confirm , điền delete. Click Delete để tiến hành xóa các endpoints. Click biểu tượng refresh, kiểm tra tất cả các endpoints đã bị xóa trước khi làm bước tiếp theo. Xóa VPC Truy cập vào giao diện quản trị dịch vụ VPC Click Your VPCs. Click chọn Lab VPC. Click Actions. Click Delete VPC. Tại ô confirm, điền delete để xác nhận, click Delete để thực hiện xóa Lab VPC và các tài nguyên liên quan. "
+},
+{
+	"uri": "//localhost:1313/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
