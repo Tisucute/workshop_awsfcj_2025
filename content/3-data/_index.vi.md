@@ -5,19 +5,48 @@ weight : 3
 chapter : false
 pre : " <b> 3. </b> "
 ---
-### Giới thiệu về tập dữ liệu thương mại điện tử Olist
+### Giới thiệu về tập dữ liệu lấy từ OpenWeather API
 
-Tập dữ liệu Olist là một bộ dữ liệu thương mại điện tử nổi tiếng của Brazil, được thu thập từ nền tảng Olist – một marketplace kết nối các nhà bán lẻ nhỏ với khách hàng trên toàn quốc. Bộ dữ liệu này bao gồm thông tin chi tiết về các đơn hàng, sản phẩm, khách hàng, người bán, thanh toán, đánh giá và vận chuyển trong nhiều năm hoạt động của Olist.
+Tập dữ liệu thu thập từ OpenWeather API là một chuỗi thời gian (time-series) các bản ghi thời tiết, mỗi bản ghi tương ứng với một thời điểm quan sát tại một vị trí địa lý cụ thể. Bộ dữ liệu này rất phù hợp cho các bài toán phân tích biến động khí hậu, dự báo thời tiết, trực quan hóa dashboard hoặc xây dựng mô hình máy học.
 
-Tập dữ liệu Olist thường được sử dụng trong các bài toán phân tích dữ liệu, khai phá dữ liệu, xây dựng hệ thống gợi ý, dự báo nhu cầu, phân tích hành vi khách hàng và các ứng dụng học máy khác. Với cấu trúc dữ liệu đa dạng, thực tế và đầy đủ, Olist là nguồn dữ liệu lý tưởng để thực hành và nghiên cứu về lĩnh vực thương mại điện tử.
+**Các trường dữ liệu chính gồm:**
 
-Một số bảng dữ liệu chính trong Olist bao gồm:
-- Thông tin đơn hàng (orders)
-- Thông tin sản phẩm (products)
-- Thông tin khách hàng (customers)
-- Thông tin người bán (sellers)
-- Đánh giá đơn hàng (order reviews)
-- Thanh toán (order payments)
-- Vận chuyển (order items, geolocation)
+- **Thông tin chung:**
+  - `dt`: Thời điểm quan sát (UNIX timestamp)
+  - `timezone`: Độ lệch múi giờ so với UTC
+  - `id`, `name`: Mã và tên thành phố
 
-Tập dữ liệu này giúp người dùng hiểu rõ hơn về hoạt động thương mại điện tử tại Brazil và cung cấp nền tảng thực tiễn cho các dự án phân tích dữ liệu
+- **Vị trí địa lý:**
+  - `coord.lat`, `coord.lon`: Vĩ độ, kinh độ
+
+- **Thông số thời tiết chính (main):**
+  - `temp`: Nhiệt độ trung bình
+  - `feels_like`: Cảm giác nhiệt độ
+  - `temp_min`, `temp_max`: Nhiệt độ cực tiểu/cực đại
+  - `pressure`: Áp suất khí quyển
+  - `humidity`: Độ ẩm
+
+- **Thời tiết chi tiết (weather - mảng):**
+  - `main`: Mô tả ngắn (ví dụ: "Clear", "Rain")
+  - `description`: Mô tả chi tiết hơn
+  - `icon`: Mã icon hiển thị
+
+- **Gió:**
+  - `wind.speed`: Tốc độ gió (m/s)
+  - `wind.deg`: Hướng gió (độ)
+
+- **Mây:**
+  - `clouds.all`: Phần trăm che phủ mây
+
+- **Tầm nhìn:**
+  - `visibility`: Tầm nhìn (mét)
+
+- **Lượng mưa/tuyết (nếu có):**
+  - `rain.1h`, `rain.3h`: Lượng mưa trong 1h/3h
+  - `snow.1h`, `snow.3h`: Lượng tuyết trong 1h/3h
+
+- **Thời điểm mặt trời mọc/lặn:**
+  - `sys.sunrise`, `sys.sunset`: Thời điểm mặt trời mọc/lặn (UNIX timestamp)
+
+**Lưu ý:**  
+Dữ liệu thường được thu thập định kỳ (ví dụ mỗi 15–60 phút), lưu dưới dạng JSON gốc hoặc chuyển thành bảng CSV với các

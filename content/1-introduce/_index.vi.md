@@ -18,32 +18,32 @@ pre : " <b> 1. </b> "
   </div>
 
   <div style="flex: 1;">
-    <!-- Tiêu đề nổi bật -->
-    <div style="background: #f5f7fa; padding: 15px 20px; border-left: 5px solid #2f80ed; margin-bottom: 20px;">
-      <strong style="font-size: 20px; color: #2f80ed;">Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud</strong>
-    <div style="text-align: justify; line-height: 1.8; font-size: 18px;">
-Trong thời đại dữ liệu hiện nay, việc xử lý, lưu trữ và khai thác dữ liệu một cách hiệu quả đóng vai trò then chốt trong hoạt động vận hành và ra quyết định của doanh nghiệp. Đề tài <strong>“Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud ”</strong> được thực hiện nhằm xây dựng một quy trình hiện đại và linh hoạt để thu thập, xử lý, lưu trữ và phân tích dữ liệu từ nhiều nguồn khác nhau.
-
-Dự án tận dụng sức mạnh của nền tảng <strong>Amazon Web Services (AWS)</strong> – dịch vụ điện toán đám mây hàng đầu thế giới – kết hợp với <strong>Snowflake</strong>, một hệ quản trị dữ liệu dạng Data Warehouse hiện đại, hỗ trợ mở rộng theo chiều ngang, tách biệt tài nguyên compute và storage.
-
-Cụ thể, hệ thống Data Pipeline được triển khai sẽ bao gồm:
-<ul style="margin-top: 10px;">
-  <li>Thu thập dữ liệu thô từ nguồn đầu vào như file <code>.csv</code>, API hoặc luồng streaming.</li>
-  <li>Lưu trữ tạm thời trên <strong>Amazon S3</strong> theo kiến trúc Data Lake.</li>
-  <li>Tích hợp xử lý tự động thông qua <strong>AWS Lambda</strong>, <strong>Glue</strong> hoặc <strong>Airflow</strong>.</li>
-  <li>Nạp dữ liệu vào <strong>Snowflake</strong> theo mô hình star schema (bảng <code>dim</code> và <code>fact</code>).</li>
-  <li>Kết nối với Power BI/Superset để trực quan hóa và phân tích.</li>
-</ul>
-
-Thông qua đề tài này, người thực hiện hướng đến mục tiêu:
-<ul style="margin-top: 10px;">
-  <li>Nắm bắt kiến trúc hiện đại trong triển khai hệ thống xử lý dữ liệu phân tán.</li>
-  <li>Vận dụng kỹ năng cloud computing trên nền tảng AWS.</li>
-  <li>Áp dụng mô hình dữ liệu và kỹ thuật ELT/ETL trong môi trường thực tế.</li>
-</ul>
-
+  <!-- Tiêu đề nổi bật -->
+  <div style="background: #f5f7fa; padding: 15px 20px; border-left: 5px solid #2f80ed; margin-bottom: 20px;">
+    <strong style="font-size: 20px; color: #2f80ed;">
+      Thiết kế và Triển khai Data Pipeline dữ liệu thời tiết trên AWS Cloud
+    </strong>
+  </div>
+  <div style="text-align: justify; line-height: 1.8; font-size: 18px;">
+    Trong kỷ nguyên dữ liệu, việc thu thập, xử lý và phân tích dữ liệu thời gian thực đóng vai trò then chốt trong việc ra quyết định. Đề tài 
+    <strong>“Thiết kế và Triển khai Data Pipeline dữ liệu thời tiết trên nền tảng AWS Cloud”</strong> được thực hiện nhằm xây dựng một quy trình tự động, linh hoạt để:
+    <ul style="margin-top: 10px;">
+      <li>Thu thập dữ liệu thời tiết thực từ OpenWeather API bằng Python.</li>
+      <li>Lưu trữ dữ liệu thô vào <strong>Amazon S3</strong> theo kiến trúc Data Lake.</li>
+      <li>Xử lý và chuyển đổi dữ liệu tự động với <strong>AWS Glue</strong>.</li>
+      <li>Nạp dữ liệu đã biến đổi vào <strong>Amazon Redshift</strong> để phục vụ phân tích OLAP.</li>
+      <li>Truy vấn ad-hoc trên S3 với <strong>AWS Athena</strong> và trực quan hóa kết quả trên <strong>AWS QuickSight</strong>.</li>
+      <li>Quản lý workflow bằng <strong>Apache Airflow</strong>, chạy các DAG thu thập – xử lý – nạp dữ liệu, với file cấu hình phụ thuộc (<code>requirements.txt</code>).</li>
+    </ul>
+    <strong>Mục tiêu của đề tài:</strong>
+    <ul style="margin-top: 10px;">
+      <li>Hiểu và vận dụng kiến trúc Data Lake & Data Warehouse trên AWS.</li>
+      <li>Thực hành xây dựng ETL/ELT pipeline tự động, có khả năng mở rộng.</li>
+      <li>Áp dụng công cụ phân tích và trực quan hóa dữ liệu thời gian thực.</li>
+    </ul>
+  </div>
 </div>
-    </div>
+
 
 
   </div>

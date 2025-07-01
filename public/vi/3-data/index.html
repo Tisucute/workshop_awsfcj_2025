@@ -12,21 +12,21 @@
     <title>Tập dữ liệu được sử dụng :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1750668475" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1750668475" rel="stylesheet">
-    <link href="/css/hybrid.css?1750668475" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1750668475" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1750668475" rel="stylesheet">
-    <link href="/css/auto-complete.css?1750668475" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1750668475" rel="stylesheet">
-    <link href="/css/theme.css?1750668475" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1750668475" rel="stylesheet">
+    <link href="/css/nucleus.css?1751344753" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1751344753" rel="stylesheet">
+    <link href="/css/hybrid.css?1751344753" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1751344753" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1751344753" rel="stylesheet">
+    <link href="/css/auto-complete.css?1751344753" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1751344753" rel="stylesheet">
+    <link href="/css/theme.css?1751344753" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1751344753" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1750668475" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1751344753" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1750668475"></script>
+    <script src="/js/jquery-3.3.1.min.js?1751344753"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1750668475"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1750668475"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1751344753"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1751344753"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1750668475"></script>
+<script type="text/javascript" src="/js/search.js?1751344753"></script>
 
     
   </div>
@@ -376,7 +376,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#giới-thiệu-về-tập-dữ-liệu-thương-mại-điện-tử-olist">Giới thiệu về tập dữ liệu thương mại điện tử Olist</a></li>
+        <li><a href="#giới-thiệu-về-tập-dữ-liệu-lấy-từ-openweather-api">Giới thiệu về tập dữ liệu lấy từ OpenWeather API</a></li>
       </ul>
     </li>
   </ul>
@@ -404,20 +404,77 @@
 
 
 
-	<h3 id="giới-thiệu-về-tập-dữ-liệu-thương-mại-điện-tử-olist">Giới thiệu về tập dữ liệu thương mại điện tử Olist</h3>
-<p>Tập dữ liệu Olist là một bộ dữ liệu thương mại điện tử nổi tiếng của Brazil, được thu thập từ nền tảng Olist – một marketplace kết nối các nhà bán lẻ nhỏ với khách hàng trên toàn quốc. Bộ dữ liệu này bao gồm thông tin chi tiết về các đơn hàng, sản phẩm, khách hàng, người bán, thanh toán, đánh giá và vận chuyển trong nhiều năm hoạt động của Olist.</p>
-<p>Tập dữ liệu Olist thường được sử dụng trong các bài toán phân tích dữ liệu, khai phá dữ liệu, xây dựng hệ thống gợi ý, dự báo nhu cầu, phân tích hành vi khách hàng và các ứng dụng học máy khác. Với cấu trúc dữ liệu đa dạng, thực tế và đầy đủ, Olist là nguồn dữ liệu lý tưởng để thực hành và nghiên cứu về lĩnh vực thương mại điện tử.</p>
-<p>Một số bảng dữ liệu chính trong Olist bao gồm:</p>
+	<h3 id="giới-thiệu-về-tập-dữ-liệu-lấy-từ-openweather-api">Giới thiệu về tập dữ liệu lấy từ OpenWeather API</h3>
+<p>Tập dữ liệu thu thập từ OpenWeather API là một chuỗi thời gian (time-series) các bản ghi thời tiết, mỗi bản ghi tương ứng với một thời điểm quan sát tại một vị trí địa lý cụ thể. Bộ dữ liệu này rất phù hợp cho các bài toán phân tích biến động khí hậu, dự báo thời tiết, trực quan hóa dashboard hoặc xây dựng mô hình máy học.</p>
+<p><strong>Các trường dữ liệu chính gồm:</strong></p>
 <ul>
-<li>Thông tin đơn hàng (orders)</li>
-<li>Thông tin sản phẩm (products)</li>
-<li>Thông tin khách hàng (customers)</li>
-<li>Thông tin người bán (sellers)</li>
-<li>Đánh giá đơn hàng (order reviews)</li>
-<li>Thanh toán (order payments)</li>
-<li>Vận chuyển (order items, geolocation)</li>
+<li>
+<p><strong>Thông tin chung:</strong></p>
+<ul>
+<li><code>dt</code>: Thời điểm quan sát (UNIX timestamp)</li>
+<li><code>timezone</code>: Độ lệch múi giờ so với UTC</li>
+<li><code>id</code>, <code>name</code>: Mã và tên thành phố</li>
 </ul>
-<p>Tập dữ liệu này giúp người dùng hiểu rõ hơn về hoạt động thương mại điện tử tại Brazil và cung cấp nền tảng thực tiễn cho các dự án phân tích dữ liệu</p>
+</li>
+<li>
+<p><strong>Vị trí địa lý:</strong></p>
+<ul>
+<li><code>coord.lat</code>, <code>coord.lon</code>: Vĩ độ, kinh độ</li>
+</ul>
+</li>
+<li>
+<p><strong>Thông số thời tiết chính (main):</strong></p>
+<ul>
+<li><code>temp</code>: Nhiệt độ trung bình</li>
+<li><code>feels_like</code>: Cảm giác nhiệt độ</li>
+<li><code>temp_min</code>, <code>temp_max</code>: Nhiệt độ cực tiểu/cực đại</li>
+<li><code>pressure</code>: Áp suất khí quyển</li>
+<li><code>humidity</code>: Độ ẩm</li>
+</ul>
+</li>
+<li>
+<p><strong>Thời tiết chi tiết (weather - mảng):</strong></p>
+<ul>
+<li><code>main</code>: Mô tả ngắn (ví dụ: &ldquo;Clear&rdquo;, &ldquo;Rain&rdquo;)</li>
+<li><code>description</code>: Mô tả chi tiết hơn</li>
+<li><code>icon</code>: Mã icon hiển thị</li>
+</ul>
+</li>
+<li>
+<p><strong>Gió:</strong></p>
+<ul>
+<li><code>wind.speed</code>: Tốc độ gió (m/s)</li>
+<li><code>wind.deg</code>: Hướng gió (độ)</li>
+</ul>
+</li>
+<li>
+<p><strong>Mây:</strong></p>
+<ul>
+<li><code>clouds.all</code>: Phần trăm che phủ mây</li>
+</ul>
+</li>
+<li>
+<p><strong>Tầm nhìn:</strong></p>
+<ul>
+<li><code>visibility</code>: Tầm nhìn (mét)</li>
+</ul>
+</li>
+<li>
+<p><strong>Lượng mưa/tuyết (nếu có):</strong></p>
+<ul>
+<li><code>rain.1h</code>, <code>rain.3h</code>: Lượng mưa trong 1h/3h</li>
+<li><code>snow.1h</code>, <code>snow.3h</code>: Lượng tuyết trong 1h/3h</li>
+</ul>
+</li>
+<li>
+<p><strong>Thời điểm mặt trời mọc/lặn:</strong></p>
+<ul>
+<li><code>sys.sunrise</code>, <code>sys.sunset</code>: Thời điểm mặt trời mọc/lặn (UNIX timestamp)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Lưu ý:</strong><br>
+Dữ liệu thường được thu thập định kỳ (ví dụ mỗi 15–60 phút), lưu dưới dạng JSON gốc hoặc chuyển thành bảng CSV với các</p>
 
 
 
@@ -580,19 +637,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1750668475"></script>
-    <script src="/js/perfect-scrollbar.min.js?1750668475"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1750668475"></script>
-    <script src="/js/jquery.sticky.js?1750668475"></script>
-    <script src="/js/featherlight.min.js?1750668475"></script>
-    <script src="/js/highlight.pack.js?1750668475"></script>
+    <script src="/js/clipboard.min.js?1751344753"></script>
+    <script src="/js/perfect-scrollbar.min.js?1751344753"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1751344753"></script>
+    <script src="/js/jquery.sticky.js?1751344753"></script>
+    <script src="/js/featherlight.min.js?1751344753"></script>
+    <script src="/js/highlight.pack.js?1751344753"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1750668475"></script>
-    <script src="/js/learn.js?1750668475"></script>
-    <script src="/js/hugo-learn.js?1750668475"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1751344753"></script>
+    <script src="/js/learn.js?1751344753"></script>
+    <script src="/js/hugo-learn.js?1751344753"></script>
 
-    <link href="/mermaid/mermaid.css?1750668475" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1750668475"></script>
+    <link href="/mermaid/mermaid.css?1751344753" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1751344753"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

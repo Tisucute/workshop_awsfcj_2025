@@ -12,21 +12,21 @@
     <title>Các công cụ được sử dụng :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1750668475" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1750668475" rel="stylesheet">
-    <link href="/css/hybrid.css?1750668475" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1750668475" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1750668475" rel="stylesheet">
-    <link href="/css/auto-complete.css?1750668475" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1750668475" rel="stylesheet">
-    <link href="/css/theme.css?1750668475" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1750668475" rel="stylesheet">
+    <link href="/css/nucleus.css?1751344753" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1751344753" rel="stylesheet">
+    <link href="/css/hybrid.css?1751344753" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1751344753" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1751344753" rel="stylesheet">
+    <link href="/css/auto-complete.css?1751344753" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1751344753" rel="stylesheet">
+    <link href="/css/theme.css?1751344753" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1751344753" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1750668475" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1751344753" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1750668475"></script>
+    <script src="/js/jquery-3.3.1.min.js?1751344753"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1750668475"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1750668475"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1751344753"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1751344753"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1750668475"></script>
+<script type="text/javascript" src="/js/search.js?1751344753"></script>
 
     
   </div>
@@ -411,23 +411,73 @@
 
 
 	<h3 id="các-công-cụ-được-sử-dụng">Các công cụ được sử dụng</h3>
-<p>Trong quá trình xây dựng Data Pipeline cho tập dữ liệu Olist trên AWS, các công cụ và dịch vụ sau được sử dụng:</p>
+<h4 id="1-data-ingestion">1. Data Ingestion</h4>
 <ul>
-<li><strong>Amazon S3</strong>: Dịch vụ lưu trữ đối tượng, dùng để lưu trữ dữ liệu gốc (raw data) và dữ liệu đã xử lý (processed data).</li>
-<li><strong>AWS Glue</strong>: Dịch vụ ETL serverless, hỗ trợ crawl schema, chuyển đổi và xử lý dữ liệu tự động.</li>
-<li><strong>AWS Lambda</strong>: Chạy các đoạn mã nhỏ để tự động hóa các tác vụ như kích hoạt Glue jobs khi có dữ liệu mới.</li>
-<li><strong>AWS Step Functions</strong>: Điều phối (orchestrate) các bước trong pipeline, đảm bảo các tác vụ diễn ra theo đúng trình tự.</li>
-<li><strong>Amazon Redshift</strong>: Kho dữ liệu phân tích (data warehouse), lưu trữ dữ liệu đã xử lý để phục vụ truy vấn và phân tích.</li>
-<li><strong>Amazon QuickSight</strong>: Công cụ trực quan hóa dữ liệu, xây dựng dashboard và báo cáo phân tích.</li>
-<li><strong>AWS IAM</strong>: Quản lý quyền truy cập và bảo mật cho các dịch vụ và dữ liệu trên AWS.</li>
-<li><strong>Amazon CloudWatch</strong>: Giám sát, thu thập log và cảnh báo cho các dịch vụ AWS, giúp theo dõi pipeline và xử lý sự cố.</li>
-<li><strong>AWS CloudTrail</strong>: Theo dõi, ghi lại các hoạt động API trên tài khoản AWS để đảm bảo tính minh bạch và bảo mật.</li>
-<li><strong>AWS SNS (Simple Notification Service)</strong>: Gửi thông báo tự động khi pipeline hoàn thành hoặc gặp lỗi.</li>
-<li><strong>AWS KMS (Key Management Service)</strong>: Quản lý và mã hóa dữ liệu, đảm bảo an toàn thông tin trong quá trình lưu trữ và truyền tải.</li>
-<li><strong>AWS DataBrew</strong>: Hỗ trợ làm sạch, chuẩn hóa dữ liệu mà không cần viết code, giúp tăng tốc quá trình chuẩn bị dữ liệu.</li>
-<li><strong>AWS Athena</strong>: Truy vấn dữ liệu trực tiếp trên S3 bằng SQL, hỗ trợ kiểm tra nhanh dữ liệu trước khi nạp vào Redshift.</li>
+<li><strong>OpenWeather API</strong>: Nguồn dữ liệu thời tiết thời gian thực (temperature, humidity, v.v.) qua RESTful endpoint.</li>
+<li><strong>Python Script</strong>:
+<ul>
+<li>Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)</li>
+<li>Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.</li>
 </ul>
-<p>Các công cụ này kết hợp với nhau tạo thành một hệ thống xử lý dữ liệu hiện đại, tự động hóa, bảo mật và dễ dàng mở rộng cho các nhu cầu phân</p>
+</li>
+</ul>
+<h4 id="2-staging--storage">2. Staging &amp; Storage</h4>
+<ul>
+<li><strong>Amazon S3 Bucket</strong>:
+<ul>
+<li>Raw zone: chứa file thô do Python script tạo.</li>
+<li>/dags: nơi lưu definition của Airflow DAGs.</li>
+<li>requirements.txt: liệt kê dependencies (requests, boto3, pandas…) để Airflow tự động cài trước khi chạy task.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-transformation">3. Transformation</h4>
+<ul>
+<li><strong>AWS Glue</strong>:
+<ul>
+<li>Glue Crawler (tuỳ chọn): tự động phát hiện schema từ file raw trên S3 và tạo table metadata trong Data Catalog.</li>
+<li>Glue ETL Job: chạy Scala/Python Spark để:
+<ul>
+<li>Đọc dữ liệu từ S3 (raw)</li>
+<li>Làm sạch/biến đổi (ví dụ: filter records, join thêm lookup table, enrichment…)</li>
+<li>Xuất dữ liệu đã transform sang S3 clean zone hoặc trực tiếp load vào Redshift.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-data-warehouse">4. Data Warehouse</h4>
+<ul>
+<li><strong>Amazon Redshift Cluster</strong>:
+<ul>
+<li>Lưu trữ bảng đã qua xử lý (dim, fact) theo mô hình star/snowflake schema.</li>
+<li>Hỗ trợ query phân tích khối lượng lớn với hiệu năng cao.</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-orchestration">5. Orchestration</h4>
+<ul>
+<li><strong>Apache Airflow</strong>:
+<ul>
+<li>Scheduler &amp; Web UI: lên lịch (cron, interval), trigger manual, monitoring, retry, alert khi có lỗi.</li>
+<li>DAGs (viết bằng Python): định nghĩa luồng công việc.
+<ul>
+<li>PythonOperator: chạy script ingestion.</li>
+<li>GlueJobOperator: khởi job AWS Glue.</li>
+<li>RedshiftOperator hoặc PostgresOperator: chạy SQL trên Redshift nếu cần.</li>
+</ul>
+</li>
+<li>Triển khai code lên Airflow bằng cách mount folder /dags từ S3 và requirements.txt để quản lý dependencies.</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-analyze">6. Analyze</h4>
+<ul>
+<li><strong>AWS Athena</strong>: Cho phép query trực tiếp file dữ liệu trên S3 (clean zone) bằng SQL mà không cần load vào database.</li>
+<li><strong>Amazon QuickSight</strong>: Kết nối đến Redshift (hoặc Athena) để dựng dashboard, chart, alert; cung cấp giao diện drag-and-drop cho business
+– Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)
+– Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.</li>
+</ul>
 
 
 
@@ -591,19 +641,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1750668475"></script>
-    <script src="/js/perfect-scrollbar.min.js?1750668475"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1750668475"></script>
-    <script src="/js/jquery.sticky.js?1750668475"></script>
-    <script src="/js/featherlight.min.js?1750668475"></script>
-    <script src="/js/highlight.pack.js?1750668475"></script>
+    <script src="/js/clipboard.min.js?1751344753"></script>
+    <script src="/js/perfect-scrollbar.min.js?1751344753"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1751344753"></script>
+    <script src="/js/jquery.sticky.js?1751344753"></script>
+    <script src="/js/featherlight.min.js?1751344753"></script>
+    <script src="/js/highlight.pack.js?1751344753"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1750668475"></script>
-    <script src="/js/learn.js?1750668475"></script>
-    <script src="/js/hugo-learn.js?1750668475"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1751344753"></script>
+    <script src="/js/learn.js?1751344753"></script>
+    <script src="/js/hugo-learn.js?1751344753"></script>
 
-    <link href="/mermaid/mermaid.css?1750668475" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1750668475"></script>
+    <link href="/mermaid/mermaid.css?1751344753" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1751344753"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

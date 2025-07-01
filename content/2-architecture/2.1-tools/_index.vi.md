@@ -7,21 +7,50 @@ pre : " <b> 2.1 </b> "
 ---
 ### Các công cụ được sử dụng
 
-Trong quá trình xây dựng Data Pipeline cho tập dữ liệu Olist trên AWS, các công cụ và dịch vụ sau được sử dụng:
+#### 1. Data Ingestion
 
-- **Amazon S3**: Dịch vụ lưu trữ đối tượng, dùng để lưu trữ dữ liệu gốc (raw data) và dữ liệu đã xử lý (processed data).
-- **AWS Glue**: Dịch vụ ETL serverless, hỗ trợ crawl schema, chuyển đổi và xử lý dữ liệu tự động.
-- **AWS Lambda**: Chạy các đoạn mã nhỏ để tự động hóa các tác vụ như kích hoạt Glue jobs khi có dữ liệu mới.
-- **AWS Step Functions**: Điều phối (orchestrate) các bước trong pipeline, đảm bảo các tác vụ diễn ra theo đúng trình tự.
-- **Amazon Redshift**: Kho dữ liệu phân tích (data warehouse), lưu trữ dữ liệu đã xử lý để phục vụ truy vấn và phân tích.
-- **Amazon QuickSight**: Công cụ trực quan hóa dữ liệu, xây dựng dashboard và báo cáo phân tích.
-- **AWS IAM**: Quản lý quyền truy cập và bảo mật cho các dịch vụ và dữ liệu trên AWS.
-- **Amazon CloudWatch**: Giám sát, thu thập log và cảnh báo cho các dịch vụ AWS, giúp theo dõi pipeline và xử lý sự cố.
-- **AWS CloudTrail**: Theo dõi, ghi lại các hoạt động API trên tài khoản AWS để đảm bảo tính minh bạch và bảo mật.
-- **AWS SNS (Simple Notification Service)**: Gửi thông báo tự động khi pipeline hoàn thành hoặc gặp lỗi.
-- **AWS KMS (Key Management Service)**: Quản lý và mã hóa dữ liệu, đảm bảo an toàn thông tin trong quá trình lưu trữ và truyền tải.
-- **AWS DataBrew**: Hỗ trợ làm sạch, chuẩn hóa dữ liệu mà không cần viết code, giúp tăng tốc quá trình chuẩn bị dữ liệu.
-- **AWS Athena**: Truy vấn dữ liệu trực tiếp trên S3 bằng SQL, hỗ trợ kiểm tra nhanh dữ liệu trước khi nạp vào Redshift.
+- **OpenWeather API**: Nguồn dữ liệu thời tiết thời gian thực (temperature, humidity, v.v.) qua RESTful endpoint.
+- **Python Script**: 
+  - Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)
+  - Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.
 
-Các công cụ này kết hợp với nhau tạo thành một hệ thống xử lý dữ liệu hiện đại, tự động hóa, bảo mật và dễ dàng mở rộng cho các nhu cầu phân tích dữ liệu
+#### 2. Staging & Storage
+
+- **Amazon S3 Bucket**:
+  - Raw zone: chứa file thô do Python script tạo.
+  - /dags: nơi lưu definition của Airflow DAGs.
+  - requirements.txt: liệt kê dependencies (requests, boto3, pandas…) để Airflow tự động cài trước khi chạy task.
+
+#### 3. Transformation
+
+- **AWS Glue**:
+  - Glue Crawler (tuỳ chọn): tự động phát hiện schema từ file raw trên S3 và tạo table metadata trong Data Catalog.
+  - Glue ETL Job: chạy Scala/Python Spark để:
+    - Đọc dữ liệu từ S3 (raw)
+    - Làm sạch/biến đổi (ví dụ: filter records, join thêm lookup table, enrichment…)
+    - Xuất dữ liệu đã transform sang S3 clean zone hoặc trực tiếp load vào Redshift.
+
+#### 4. Data Warehouse
+
+- **Amazon Redshift Cluster**:
+  - Lưu trữ bảng đã qua xử lý (dim, fact) theo mô hình star/snowflake schema.
+  - Hỗ trợ query phân tích khối lượng lớn với hiệu năng cao.
+
+#### 5. Orchestration
+
+- **Apache Airflow**:
+  - Scheduler & Web UI: lên lịch (cron, interval), trigger manual, monitoring, retry, alert khi có lỗi.
+  - DAGs (viết bằng Python): định nghĩa luồng công việc.
+    - PythonOperator: chạy script ingestion.
+    - GlueJobOperator: khởi job AWS Glue.
+    - RedshiftOperator hoặc PostgresOperator: chạy SQL trên Redshift nếu cần.
+  - Triển khai code lên Airflow bằng cách mount folder /dags từ S3 và requirements.txt để quản lý dependencies.
+
+#### 6. Analyze
+
+- **AWS Athena**: Cho phép query trực tiếp file dữ liệu trên S3 (clean zone) bằng SQL mà không cần load vào database.
+- **Amazon QuickSight**: Kết nối đến Redshift (hoặc Athena) để dựng dashboard, chart, alert; cung cấp giao diện drag-and-drop cho business
+– Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)
+– Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.
+
 
