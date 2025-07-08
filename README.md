@@ -1,3 +1,3 @@
-# Architec and Building a Data pipeline Automate using AWS 
+# Building an Automated Real-Time Data Processing and Visualization Architecture on AWS
 
 

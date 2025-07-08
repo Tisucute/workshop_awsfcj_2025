@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Building a Data Pipeline using AWS Cloud :: AWS System Manager</title>
+    <title>Building an Automated Real-Time Data Processing and Visualization Architecture on AWS :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751343985" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751343985" rel="stylesheet">
-    <link href="/css/hybrid.css?1751343985" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751343985" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751343985" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751343985" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751343985" rel="stylesheet">
-    <link href="/css/theme.css?1751343985" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751343985" rel="stylesheet">
+    <link href="/css/nucleus.css?1751968229" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1751968229" rel="stylesheet">
+    <link href="/css/hybrid.css?1751968229" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1751968229" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1751968229" rel="stylesheet">
+    <link href="/css/auto-complete.css?1751968229" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1751968229" rel="stylesheet">
+    <link href="/css/theme.css?1751968229" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1751968229" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751343985" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1751968229" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751343985"></script>
+    <script src="/js/jquery-3.3.1.min.js?1751968229"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751343985"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751343985"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1751968229"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1751968229"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751343985"></script>
+<script type="text/javascript" src="/js/search.js?1751968229"></script>
 
     
   </div>
@@ -218,12 +218,49 @@
 </span>
 
  
-<h1 id="work-with-tools-on-aws-cloud">Work with tools on AWS Cloud</h1>
-<h3 id="overall">Overall</h3>
-<p>In this lab, you&rsquo;ll learn the basics and practice of tools on AWS Cloud</p>
-<h3 id="content">Content</h3>
+<h1 id="building-an-automated-real-time-data-processing-and-visualization-architecture-on-aws">Building an Automated Real-Time Data Processing and Visualization Architecture on AWS</h1>
+<p><strong>Author:</strong> Nguyễn Ngọc Anh Thư<br>
+<strong>Student ID:</strong> 22133059<br>
+<strong>Email:</strong> <a href="mailto:ngocanhthugialai@gmail.com">ngocanhthugialai@gmail.com</a><br>
+<strong>University:</strong> Ho Chi Minh City University of Technology and Education (HCMUTE)</p>
+<h3 id="overview">Overview</h3>
+<p>The project &ldquo;Building an Automated Processing and Real-time Data Visualization Architecture on AWS&rdquo; represents my dedication and effort to develop a comprehensive system that automates the collection, processing, and visualization of real-time data streams using Amazon Web Services (AWS). With the aim of meeting the increasing demand for timely analysis and decision-making based on the latest data, the system is designed to include key components: weather data collection from OpenWeather API using Python and storage in AWS S3; orchestration managed by Amazon Managed Workflows for Apache Airflow (MWAA); data processing and transformation using AWS Glue; data storage in AWS Redshift warehouse; and finally, visualization of results through AWS QuickSight on an intuitive dashboard.</p>
+<p>Infrastructure deployment is implemented through Infrastructure as Code (IaC) using AWS CloudFormation, ensuring consistency, automation, ease of management, and scalability for future resource changes or additions. Security policies and access management are also configured through AWS IAM and a secure Virtual Private Cloud (VPC) environment to ensure system safety.</p>
+<p>I genuinely hope this report not only accurately reflects my efforts but also serves as a friendly, easy-to-understand resource for students new to AWS or modern development methodologies. Through this work, I aim to convey my enthusiasm and passion for technology and support students in gaining confidence as they embark on their AWS exploration and application journey.</p>
+<h3 id="implementation-timeline">Implementation Timeline</h3>
+<ul>
+<li><strong>Data collection:</strong> 1 day</li>
+<li><strong>Execution of steps:</strong> 2–3 hours (depending on familiarity with the tools)
+
+<div class="notices warning" ><p>The data is only sufficient for analysis; collecting more may incur additional costs.</p>
+</div>
+</li>
+<li><strong>Thực hiện các thao tác:</strong> 2 - 3 tiếng (tùy vào độ quen thuộc với các công cụ)</li>
+</ul>
+<h3 id="contents">Contents</h3>
 <ol>
-<li><a href="1-introduce/">Introduction </a></li>
+<li><a href="1-introduce/">Introduction</a></li>
+<li><a href="2-architecture/">Tools and Architecture Diagram</a>
+<ul>
+<li><a href="2-architecture/2.1-tools/">Tools Used</a></li>
+<li><a href="2-architecture/2.2-architecture/">Architecture Diagram</a></li>
+</ul>
+</li>
+<li><a href="3-etl-process/">Steps for Automated ETL Process</a>
+<ul>
+<li><a href="3-etl-process/3.1-env-files/">About Environment Files</a></li>
+<li><a href="3-etl-process/3.2-infra-as-code/">Infrastructure as Code Deployment</a></li>
+<li><a href="3-etl-process/3.3-setup-variables-connection/">Setting Variables, Creating Connections, and Uploading Environment</a></li>
+<li><a href="3-etl-process/3.4-etl-execution/">ETL Execution Process</a></li>
+</ul>
+</li>
+<li><a href="4-analysis-visualization/">Analysis and Visualization</a>
+<ul>
+<li><a href="4-analysis-visualization/4.1-redshift/">Analysis with AWS Redshift</a></li>
+<li><a href="4-analysis-visualization/4.2-quicksight/">Visualization with AWS Quicksight</a></li>
+</ul>
+</li>
+<li><a href="5-cleanup/">Cleanup</a></li>
 </ol>
 	
   
@@ -292,19 +329,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751343985"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751343985"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751343985"></script>
-    <script src="/js/jquery.sticky.js?1751343985"></script>
-    <script src="/js/featherlight.min.js?1751343985"></script>
-    <script src="/js/highlight.pack.js?1751343985"></script>
+    <script src="/js/clipboard.min.js?1751968229"></script>
+    <script src="/js/perfect-scrollbar.min.js?1751968229"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1751968229"></script>
+    <script src="/js/jquery.sticky.js?1751968229"></script>
+    <script src="/js/featherlight.min.js?1751968229"></script>
+    <script src="/js/highlight.pack.js?1751968229"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751343985"></script>
-    <script src="/js/learn.js?1751343985"></script>
-    <script src="/js/hugo-learn.js?1751343985"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1751968229"></script>
+    <script src="/js/learn.js?1751968229"></script>
+    <script src="/js/hugo-learn.js?1751968229"></script>
 
-    <link href="/mermaid/mermaid.css?1751343985" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751343985"></script>
+    <link href="/mermaid/mermaid.css?1751968229" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1751968229"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

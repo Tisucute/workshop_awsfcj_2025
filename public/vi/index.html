@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud :: AWS System Manager</title>
+    <title>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751344753" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751344753" rel="stylesheet">
-    <link href="/css/hybrid.css?1751344753" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751344753" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751344753" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751344753" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751344753" rel="stylesheet">
-    <link href="/css/theme.css?1751344753" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751344753" rel="stylesheet">
+    <link href="/css/nucleus.css?1751968229" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1751968229" rel="stylesheet">
+    <link href="/css/hybrid.css?1751968229" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1751968229" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1751968229" rel="stylesheet">
+    <link href="/css/auto-complete.css?1751968229" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1751968229" rel="stylesheet">
+    <link href="/css/theme.css?1751968229" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1751968229" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751344753" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1751968229" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751344753"></script>
+    <script src="/js/jquery-3.3.1.min.js?1751968229"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751344753"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751344753"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1751968229"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1751968229"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751344753"></script>
+<script type="text/javascript" src="/js/search.js?1751968229"></script>
 
     
   </div>
@@ -364,23 +364,48 @@
 </span>
 
  
-<h1 id="thiết-kế-và-triển-khai-data-pipeline-trên-nền-tảng-aws-cloud">Thiết kế và Triển khai Data Pipeline trên nền tảng AWS Cloud</h1>
+<h1 id="xây-dựng-kiến-trúc-xử-lý-tự-động-và-trực-quan-hóa-dữ-liệu-thời-gian-thực-trên-aws">Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</h1>
+<p><strong>Họ tên:</strong> Nguyễn Ngọc Anh Thư<br>
+<strong>MSSV:</strong> 22133059<br>
+<strong>Email:</strong> <a href="mailto:ngocanhthugialai@gmail.com">ngocanhthugialai@gmail.com</a><br>
+<strong>Trường:</strong> Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE)</p>
 <h3 id="tổng-quan">Tổng quan</h3>
-<p>Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về AWS Cloud.</p>
+<p>Đề tài &ldquo;Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS&rdquo; là sự tâm huyết và nỗ lực nhằm xây dựng một hệ thống toàn diện, tự động hóa việc thu thập, xử lý và hiển thị trực quan các luồng dữ liệu thời gian thực dựa trên nền tảng Amazon Web Services (AWS). Với mục tiêu đáp ứng nhu cầu phân tích và ra quyết định nhanh chóng, hiệu quả dựa trên dữ liệu mới nhất, hệ thống được thiết kế bao gồm các thành phần chính: thu thập dữ liệu thời tiết từ API của OpenWeather bằng Python và lưu trữ vào AWS S3; orchestration thông qua Amazon Managed Workflows for Apache Airflow (MWAA); xử lý và chuyển đổi dữ liệu bằng AWS Glue; lưu trữ dữ liệu vào kho dữ liệu AWS Redshift; và cuối cùng trực quan hóa kết quả bằng AWS QuickSight trên dashboard trực quan.</p>
+<p>Việc triển khai hạ tầng được thực hiện thông qua mã nguồn (Infrastructure as Code - IaC) sử dụng AWS CloudFormation, đảm bảo tính nhất quán, tự động hóa và dễ dàng quản lý, mở rộng khi có nhu cầu thay đổi hoặc bổ sung tài nguyên. Các chính sách bảo mật và quản lý truy cập cũng được thiết lập thông qua AWS IAM và môi trường bảo mật mạng riêng ảo (VPC) nhằm đảm bảo an toàn cho hệ thống.</p>
+<p>Em rất hy vọng báo cáo này không chỉ phản ánh chân thực quá trình thực hiện của em, mà còn là một tài liệu thân thiện, dễ hiểu, đồng hành cùng các bạn sinh viên mới tiếp cận AWS hoặc các mô hình phát triển hiện đại. Mong rằng, qua đây em có thể truyền tải được sự nhiệt huyết, niềm đam mê với công nghệ và hỗ trợ các bạn tự tin hơn trên hành trình khám phá và ứng dụng AWS.</p>
+<h3 id="thời-gian-thực-hiện">Thời gian thực hiện</h3>
+<ul>
+<li><strong>Lấy dữ liệu:</strong> 1 ngày
+
+<div class="notices warning" ><p>Dữ liệu chỉ đủ để phân tích, nếu nhiều hơn có thể phát sinh thêm nhiều chi phí</p>
+</div>
+</li>
+<li><strong>Thực hiện các thao tác:</strong> 2 - 3 tiếng (tùy vào độ quen thuộc với các công cụ)</li>
+</ul>
 <h3 id="nội-dung">Nội dung</h3>
 <ol>
 <li><a href="/vi/1-introduce/">Giới thiệu</a></li>
-<li><a href="/vi/2-architecture/">Sơ đồ Kiến trúc</a></li>
-<li><a href="/vi/3-data/">Giới thiệu tập dữ liệu</a></li>
-<li><a href="4-setup/">Chuẩn bị môi trường AWS</a></li>
-<li><a href="5-ingest/">Ingest dữ liệu vào S3</a></li>
-<li><a href="6-etl/">Xử lý và chuyển đổi dữ liệu với Glue</a></li>
-<li><a href="7-automation/">Tự động hóa pipeline với Lambda &amp; Step Functions</a></li>
-<li><a href="8-redshift/">Nạp dữ liệu vào Redshift</a></li>
-<li><a href="9-quicksight/">Trực quan hóa với QuickSight</a></li>
-<li><a href="10-monitoring/">Giám sát, bảo mật và tối ưu</a></li>
-<li><a href="12-cleanup/">Xóa tài nguyên AWS sau khi hoàn thành</a></li>
-<li><a href="11-summary/">Tổng kết và mở rộng</a></li>
+<li><a href="/vi/2-architecture/">Các công cụ sử dụng và Sơ đồ kiến trúc</a>
+<ul>
+<li><a href="/vi/2-architecture/2.1-tools/">Các công cụ sử dụng</a></li>
+<li><a href="/vi/2-architecture/2.2-architecture/">Sơ đồ kiến trúc</a></li>
+</ul>
+</li>
+<li><a href="3-etl-process/">Các bước thực hiện quá trình ETL tự động</a>
+<ul>
+<li><a href="3-etl-process/3.1-env-files/">Về các file môi trường</a></li>
+<li><a href="3-etl-process/3.2-infra-as-code/">Triển khai hạ tầng bằng mã nguồn</a></li>
+<li><a href="3-etl-process/3.3-setup-variables-connection/">Thiết lập biến, tạo kết nối và upload môi trường</a></li>
+<li><a href="3-etl-process/3.4-etl-execution/">Quá trình thực hiện ETL</a></li>
+</ul>
+</li>
+<li><a href="4-analysis-visualization/">Phân tích và trực quan hóa</a>
+<ul>
+<li><a href="4-analysis-visualization/4.1-redshift/">Phân tích với AWS Redshift</a></li>
+<li><a href="4-analysis-visualization/4.2-quicksight/">Trực quan hóa với AWS Quicksight</a></li>
+</ul>
+</li>
+<li><a href="5-cleanup/">Dọn dẹp tài nguyên</a></li>
 </ol>
 	
   
@@ -531,19 +556,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751344753"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751344753"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751344753"></script>
-    <script src="/js/jquery.sticky.js?1751344753"></script>
-    <script src="/js/featherlight.min.js?1751344753"></script>
-    <script src="/js/highlight.pack.js?1751344753"></script>
+    <script src="/js/clipboard.min.js?1751968229"></script>
+    <script src="/js/perfect-scrollbar.min.js?1751968229"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1751968229"></script>
+    <script src="/js/jquery.sticky.js?1751968229"></script>
+    <script src="/js/featherlight.min.js?1751968229"></script>
+    <script src="/js/highlight.pack.js?1751968229"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751344753"></script>
-    <script src="/js/learn.js?1751344753"></script>
-    <script src="/js/hugo-learn.js?1751344753"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1751968229"></script>
+    <script src="/js/learn.js?1751968229"></script>
+    <script src="/js/hugo-learn.js?1751968229"></script>
 
-    <link href="/mermaid/mermaid.css?1751344753" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751344753"></script>
+    <link href="/mermaid/mermaid.css?1751968229" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1751968229"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
