@@ -42,5 +42,4 @@ Dữ liệu chỉ đủ để phân tích, nếu nhiều hơn có thể phát si
    - [Phân tích với AWS Redshift](4-analysis-visualization/4.1-redshift/)
    - [Trực quan hóa với AWS Quicksight](4-analysis-visualization/4.2-quicksight/)
 5. [Dọn dẹp tài nguyên](5-cleanup/)
-6. [Các lỗi có thể gặp và cách khắc phục](6-common-errors/)
-7. [Kết luận](7-in-conclusion/)
+6. [Kết luận](6-in-conclusion/)

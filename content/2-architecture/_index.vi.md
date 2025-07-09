@@ -1,5 +1,5 @@
 ---
-title : "Các công cụ sử dụng và Sơ đồ kiến trúc"
+title : "Công cụ sử dụng và Kiến trúc"
 date :  "`r Sys.Date()`" 
 weight : 2
 chapter : false

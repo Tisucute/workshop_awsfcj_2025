@@ -1,5 +1,5 @@
 ---
-title : "Các bước thực hiện quá trình ETL tự động"
+title : "Quá trình ETL tự động"
 date :  "`r Sys.Date()`" 
 weight : 3
 chapter : false

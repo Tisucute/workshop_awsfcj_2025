@@ -44,5 +44,4 @@ The data is only sufficient for analysis; collecting more may incur additional c
    - [Analysis with AWS Redshift](4-analysis-visualization/4.1-redshift/)
    - [Visualization with AWS Quicksight](4-analysis-visualization/4.2-quicksight/)
 5. [Cleanup](5-cleanup/)
-6. [Common Errors and Troubleshooting](6-common-errors/)
-7. [In Conclusion](7-in-conclusion/)
+6. [In Conclusion](6-in-conclusion/)

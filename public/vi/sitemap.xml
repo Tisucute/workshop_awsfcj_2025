@@ -29,6 +29,8 @@
                 href="//localhost:1313/vi/1-introduce/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/4-analysis-visualization/4.1-redshift/</loc>
+  </url><url>
     <loc>//localhost:1313/vi/2-architecture/2.1-tools/</loc>
     <xhtml:link
                 rel="alternate"
@@ -53,6 +55,8 @@
                 href="//localhost:1313/vi/2-architecture/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/3-etl-process/3.2-infra-as-code/</loc>
+  </url><url>
     <loc>//localhost:1313/vi/2-architecture/2.2-architecture/</loc>
     <xhtml:link
                 rel="alternate"
@@ -66,6 +70,18 @@
                 />
   </url><url>
     <loc>//localhost:1313/vi/3-etl-process/</loc>
+  </url><url>
+    <loc>//localhost:1313/vi/3-etl-process/3.3-setup-variables-connection/</loc>
+  </url><url>
+    <loc>//localhost:1313/vi/4-analysis-visualization/</loc>
+  </url><url>
+    <loc>//localhost:1313/vi/3-etl-process/3.4-etl-execution/</loc>
+  </url><url>
+    <loc>//localhost:1313/vi/4-analysis-visualization/4.2-quicksight/</loc>
+  </url><url>
+    <loc>//localhost:1313/vi/5-cleanup/</loc>
+  </url><url>
+    <loc>//localhost:1313/vi/6-in-conclusion/</loc>
   </url><url>
     <loc>//localhost:1313/vi/categories/</loc>
     <xhtml:link

@@ -1,5 +1,5 @@
 ---
-title : "Tools and Architecture Diagram"
+title : "Tools and Architecture"
 date :  "`r Sys.Date()`" 
 weight : 2
 chapter : false
