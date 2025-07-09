@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Các công cụ được sử dụng :: AWS System Manager</title>
+    <title>Các bước thực hiện quá trình ETL tự động :: AWS System Manager</title>
 
     
     <link href="/css/nucleus.css?1752047285" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vi/2-architecture/2.1-tools/">
+  <body class="" data-url="/vi/3-etl-process/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -109,7 +109,7 @@
   
     
     <li data-nav-id="/vi/2-architecture/" title="Các công cụ sử dụng và Sơ đồ kiến trúc" class="dd-item 
-        parent
+        
         
         
         ">
@@ -141,7 +141,7 @@
     
     <li data-nav-id="/vi/2-architecture/2.1-tools/" title="Các công cụ được sử dụng" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/vi/2-architecture/2.1-tools/">
@@ -204,7 +204,7 @@
     
     <li data-nav-id="/vi/3-etl-process/" title="Các bước thực hiện quá trình ETL tự động" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/vi/3-etl-process/">
@@ -293,23 +293,11 @@
               
               
                   
-                    
-                    
-                      <option id="en" value="//localhost:1313/2-architecture/2.1-tools/">English</option>
-                    
-                  
-              
-                  
-              
-          
-              
-              
-                  
               
                   
                     
                     
-                      <option id="vi" value="//localhost:1313/vi/2-architecture/2.1-tools/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/3-etl-process/" selected>Tiếng Việt</option>
                     
                   
               
@@ -387,13 +375,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/vi/'>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</a> > <a href='/vi/2-architecture/'>Các công cụ sử dụng và Sơ đồ kiến trúc</a> > Các công cụ được sử dụng
-          
-        
+            <a href='/vi/'>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</a> > Các bước thực hiện quá trình ETL tự động
           
         
           
@@ -408,7 +390,8 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#luồng-xử-lý-tổng-thể-gồm-4-bước-chính">Luồng xử lý tổng thể gồm 4 bước chính:</a></li>
+        <li><a href="#tại-sao-cần-etl-tự-động">Tại sao cần ETL tự động?</a></li>
       </ul>
     </li>
   </ul>
@@ -428,7 +411,7 @@
           
             <h1>
               
-              Các công cụ được sử dụng
+              Các bước thực hiện quá trình ETL tự động
             </h1>
           
 
@@ -436,71 +419,57 @@
 
 
 
-	<h4 id="1-openweather-api">1. OpenWeather API</h4>
-<p><strong>OpenWeather API</strong> là dịch vụ cung cấp dữ liệu thời tiết thời gian thực thông qua các RESTful endpoint. Người dùng có thể truy xuất các thông tin như nhiệt độ, độ ẩm, áp suất, v.v. bằng cách gửi yêu cầu HTTP và nhận về dữ liệu ở định dạng JSON hoặc XML.</p>
-<h4 id="2-python-script">2. Python Script</h4>
-<p><strong>Python</strong> là ngôn ngữ lập trình phổ biến, mạnh mẽ trong xử lý dữ liệu. Trong hệ thống này, Python script được sử dụng để:</p>
+	<p>Trong kiến trúc thu thập và xử lý dữ liệu thời tiết sử dụng AWS, phần quan trọng nhất nằm ở quy trình ETL (Extract – Transform – Load) tự động. Đây là nơi toàn bộ dữ liệu được lấy về từ OpenWeather API, xử lý, lưu trữ và chuyển hóa thành thông tin có thể phân tích được.</p>
+<h3 id="luồng-xử-lý-tổng-thể-gồm-4-bước-chính">Luồng xử lý tổng thể gồm 4 bước chính:</h3>
+<h4 id="1-chuẩn-bị-môi-trường">1. Chuẩn bị môi trường</h4>
 <ul>
 <li>
-<p>Gọi API (ví dụ: OpenWeather API) để lấy dữ liệu.</p>
+<p>Viết script Python để gọi API và xử lý dữ liệu ban đầu.</p>
 </li>
 <li>
-<p>Phân tích cú pháp (parse) dữ liệu JSON trả về.</p>
-</li>
-<li>
-<p>Làm sạch, chuẩn hóa dữ liệu (chuyển đổi múi giờ, đổi tên trường, v.v.).</p>
-</li>
-<li>
-<p>Xuất dữ liệu ra các định dạng như CSV, Parquet, hoặc JSON.</p>
-</li>
-<li>
-<p>Đẩy dữ liệu lên Amazon S3 để lưu trữ.</p>
+<p>Đóng gói các file này vào S3 để Airflow (MWAA) có thể chạy tự động.</p>
 </li>
 </ul>
-<h4 id="3-amazon-s3">3. Amazon S3</h4>
-<p><strong>Amazon S3</strong> là dịch vụ lưu trữ đối tượng (object storage) của AWS, cho phép lưu trữ và truy xuất dữ liệu với độ bền và khả năng mở rộng cao. Trong kiến trúc này, S3 được dùng để:</p>
+<h4 id="2-triển-khai-hạ-tầng-tự-động">2. Triển khai hạ tầng tự động</h4>
+<p>Sử dụng AWS CloudFormation để triển khai toàn bộ tài nguyên cần thiết như S3, MWAA, IAM, Glue, Redshift&hellip;</p>
+<h4 id="3-cấu-hình-airflow">3. Cấu hình Airflow</h4>
 <ul>
 <li>
-<p>Lưu trữ dữ liệu thô (raw data) do Python script tạo ra.</p>
+<p>Thiết lập biến (Variables) và kết nối (Connections) trong Airflow.</p>
 </li>
 <li>
-<p>Lưu trữ các file định nghĩa DAGs cho Airflow.</p>
-</li>
-<li>
-<p>Lưu trữ các file requirements.txt để quản lý dependencies cho Airflow.</p>
+<p>Upload DAG và các tệp cần thiết lên đúng vị trí trong S3.</p>
 </li>
 </ul>
-<h4 id="4-aws-glue">4. AWS Glue</h4>
-<p><strong>AWS Glue</strong> là dịch vụ ETL (Extract, Transform, Load) serverless của AWS, hỗ trợ tự động hóa việc phát hiện schema, làm sạch, biến đổi và nạp dữ liệu. Các thành phần chính:</p>
+<h4 id="4-thực-thi-etl">4. Thực thi ETL</h4>
 <ul>
 <li>
-<p><strong>Glue Crawler</strong>: Tự động quét dữ liệu trên S3, phát hiện schema và tạo metadata table trong Data Catalog.</p>
+<p>Apache Airflow tự động kích hoạt pipeline theo lịch trình.</p>
 </li>
 <li>
-<p><strong>Glue ETL Job</strong>: Chạy mã Scala hoặc Python (Spark) để xử lý, biến đổi dữ liệu và xuất kết quả sang S3 hoặc Redshift.</p>
+<p>Gọi API → lưu vào S3 → xử lý bằng Glue → lưu vào Redshift → trực quan hóa bằng QuickSight.</p>
 </li>
 </ul>
-<h4 id="5-amazon-redshift">5. Amazon Redshift</h4>
-<p><strong>Amazon Redshift</strong> là dịch vụ data warehouse trên nền tảng đám mây, tối ưu cho các truy vấn phân tích dữ liệu lớn (OLAP). Redshift hỗ trợ lưu trữ dữ liệu theo mô hình star/snowflake schema, cho phép thực hiện các truy vấn phức tạp với hiệu năng cao, phù hợp cho các bài toán BI, phân tích dữ liệu.</p>
-<h4 id="6-apache-airflow-mwaa">6. Apache Airflow (MWAA)</h4>
-<p><strong>Apache Airflow</strong> là nền tảng mã nguồn mở dùng để lập lịch, điều phối và giám sát các workflow (luồng công việc) phức tạp. Trên AWS, Airflow được cung cấp dưới dạng dịch vụ Managed Workflows for Apache Airflow (MWAA). Airflow sử dụng các DAGs (Directed Acyclic Graphs) để định nghĩa các bước xử lý dữ liệu, hỗ trợ tự động hóa, retry, alert, và tích hợp với nhiều dịch vụ AWS.</p>
-<h4 id="7-amazon-quicksight">7. Amazon QuickSight</h4>
-<p><strong>Amazon QuickSight</strong> là dịch vụ BI (Business Intelligence) trên AWS, hỗ trợ kết nối đến nhiều nguồn dữ liệu như Redshift, S3,&hellip; QuickSight cho phép xây dựng dashboard, biểu đồ, báo cáo tương tác với giao diện kéo-thả, hỗ trợ phân tích và trực quan hóa dữ liệu cho người dùng doanh nghiệp.</p>
-<h4 id="8-aws-cloudformation-iam-vpc-secrets-manager">8. AWS CloudFormation, IAM, VPC, Secrets Manager</h4>
+<h3 id="tại-sao-cần-etl-tự-động">Tại sao cần ETL tự động?</h3>
 <ul>
 <li>
-<p><strong>CloudFormation</strong>: Dịch vụ quản lý hạ tầng dưới dạng mã (Infrastructure as Code), giúp tự động hóa việc triển khai và quản lý tài nguyên AWS.</p>
+<p><strong>Tiết kiệm thời gian</strong>: Không cần thủ công tải dữ liệu hằng ngày.</p>
 </li>
 <li>
-<p><strong>IAM (Identity and Access Management)</strong>: Quản lý quyền truy cập, xác thực và phân quyền cho người dùng/dịch vụ.</p>
+<p><strong>Chuẩn hóa dữ liệu</strong>: Đảm bảo dữ liệu có định dạng sạch, đồng nhất, có thể phân tích.</p>
 </li>
 <li>
-<p><strong>VPC (Virtual Private Cloud)</strong>: Tạo mạng ảo riêng biệt trên AWS, kiểm soát truy cập và bảo mật cho các tài nguyên.</p>
+<p><strong>Tích hợp dễ dàng</strong>: Với các công cụ phân tích như Amazon Redshift &amp; QuickSight.</p>
 </li>
 <li>
-<p><strong>Secrets Manager</strong>: Lưu trữ, quản lý và truy xuất thông tin nhạy cảm (API key, mật khẩu, v.v.) một cách an toàn.</p>
+<p><strong>Có thể mở rộng</strong>: Dễ dàng áp dụng cho nhiều loại dữ liệu khác nhau, không chỉ thời tiết.</p>
 </li>
 </ul>
+<h4 id="nội-dung-chính">Nội dung chính:</h4>
+<p>3.1  <a href="/vi/3-etl-process/3.1-env-files/">Về các file môi trường</a></p>
+<p>3.2  <a href="3-etl-process/3.2-infra-as-code/">Triển khai hạ tầng bằng mã nguồn</a></p>
+<p>3.3  <a href="3-etl-process/3.3-setup-variables-connection/">Thiết lập biến, tạo kết nối và upload môi trường</a></p>
+<p>3.4 <a href="3-etl-process/3.4-etl-execution/">Quá trình thực hiện ETL</a></p>
 
 
 
@@ -560,7 +529,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -575,7 +543,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -592,9 +559,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -615,6 +579,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -629,6 +594,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -653,10 +621,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-architecture/" title="Các công cụ sử dụng và Sơ đồ kiến trúc"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/2-architecture/2.2-architecture/" title="Xây dựng Sơ đồ Kiến trúc"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-architecture/2.2-architecture/" title="Xây dựng Sơ đồ Kiến trúc" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/3-etl-process/3.1-env-files/" title="Các file môi trường" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

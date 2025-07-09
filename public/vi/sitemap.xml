@@ -15,6 +15,8 @@
                 href="//localhost:1313/vi/"
                 />
   </url><url>
+    <loc>//localhost:1313/vi/3-etl-process/3.1-env-files/</loc>
+  </url><url>
     <loc>//localhost:1313/vi/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
@@ -62,6 +64,8 @@
                 hreflang="vi"
                 href="//localhost:1313/vi/2-architecture/2.2-architecture/"
                 />
+  </url><url>
+    <loc>//localhost:1313/vi/3-etl-process/</loc>
   </url><url>
     <loc>//localhost:1313/vi/categories/</loc>
     <xhtml:link

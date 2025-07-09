@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Các công cụ được sử dụng :: AWS System Manager</title>
+    <title>Các file môi trường :: AWS System Manager</title>
 
     
     <link href="/css/nucleus.css?1752047285" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vi/2-architecture/2.1-tools/">
+  <body class="" data-url="/vi/3-etl-process/3.1-env-files/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -109,7 +109,7 @@
   
     
     <li data-nav-id="/vi/2-architecture/" title="Các công cụ sử dụng và Sơ đồ kiến trúc" class="dd-item 
-        parent
+        
         
         
         ">
@@ -141,7 +141,7 @@
     
     <li data-nav-id="/vi/2-architecture/2.1-tools/" title="Các công cụ được sử dụng" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/vi/2-architecture/2.1-tools/">
@@ -203,7 +203,7 @@
   
     
     <li data-nav-id="/vi/3-etl-process/" title="Các bước thực hiện quá trình ETL tự động" class="dd-item 
-        
+        parent
         
         
         ">
@@ -235,7 +235,7 @@
     
     <li data-nav-id="/vi/3-etl-process/3.1-env-files/" title="Các file môi trường" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/vi/3-etl-process/3.1-env-files/">
@@ -293,23 +293,11 @@
               
               
                   
-                    
-                    
-                      <option id="en" value="//localhost:1313/2-architecture/2.1-tools/">English</option>
-                    
-                  
-              
-                  
-              
-          
-              
-              
-                  
               
                   
                     
                     
-                      <option id="vi" value="//localhost:1313/vi/2-architecture/2.1-tools/" selected>Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/3-etl-process/3.1-env-files/" selected>Tiếng Việt</option>
                     
                   
               
@@ -391,7 +379,7 @@
             
           
           
-            <a href='/vi/'>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</a> > <a href='/vi/2-architecture/'>Các công cụ sử dụng và Sơ đồ kiến trúc</a> > Các công cụ được sử dụng
+            <a href='/vi/'>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</a> > <a href='/vi/3-etl-process/'>Các bước thực hiện quá trình ETL tự động</a> > Các file môi trường
           
         
           
@@ -408,7 +396,7 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#về-môi-trường-của-airflow">Về môi trường của Airflow</a></li>
       </ul>
     </li>
   </ul>
@@ -428,7 +416,7 @@
           
             <h1>
               
-              Các công cụ được sử dụng
+              Các file môi trường
             </h1>
           
 
@@ -436,71 +424,33 @@
 
 
 
-	<h4 id="1-openweather-api">1. OpenWeather API</h4>
-<p><strong>OpenWeather API</strong> là dịch vụ cung cấp dữ liệu thời tiết thời gian thực thông qua các RESTful endpoint. Người dùng có thể truy xuất các thông tin như nhiệt độ, độ ẩm, áp suất, v.v. bằng cách gửi yêu cầu HTTP và nhận về dữ liệu ở định dạng JSON hoặc XML.</p>
-<h4 id="2-python-script">2. Python Script</h4>
-<p><strong>Python</strong> là ngôn ngữ lập trình phổ biến, mạnh mẽ trong xử lý dữ liệu. Trong hệ thống này, Python script được sử dụng để:</p>
-<ul>
-<li>
-<p>Gọi API (ví dụ: OpenWeather API) để lấy dữ liệu.</p>
-</li>
-<li>
-<p>Phân tích cú pháp (parse) dữ liệu JSON trả về.</p>
-</li>
-<li>
-<p>Làm sạch, chuẩn hóa dữ liệu (chuyển đổi múi giờ, đổi tên trường, v.v.).</p>
-</li>
-<li>
-<p>Xuất dữ liệu ra các định dạng như CSV, Parquet, hoặc JSON.</p>
-</li>
-<li>
-<p>Đẩy dữ liệu lên Amazon S3 để lưu trữ.</p>
-</li>
-</ul>
-<h4 id="3-amazon-s3">3. Amazon S3</h4>
-<p><strong>Amazon S3</strong> là dịch vụ lưu trữ đối tượng (object storage) của AWS, cho phép lưu trữ và truy xuất dữ liệu với độ bền và khả năng mở rộng cao. Trong kiến trúc này, S3 được dùng để:</p>
-<ul>
-<li>
-<p>Lưu trữ dữ liệu thô (raw data) do Python script tạo ra.</p>
-</li>
-<li>
-<p>Lưu trữ các file định nghĩa DAGs cho Airflow.</p>
-</li>
-<li>
-<p>Lưu trữ các file requirements.txt để quản lý dependencies cho Airflow.</p>
-</li>
-</ul>
-<h4 id="4-aws-glue">4. AWS Glue</h4>
-<p><strong>AWS Glue</strong> là dịch vụ ETL (Extract, Transform, Load) serverless của AWS, hỗ trợ tự động hóa việc phát hiện schema, làm sạch, biến đổi và nạp dữ liệu. Các thành phần chính:</p>
-<ul>
-<li>
-<p><strong>Glue Crawler</strong>: Tự động quét dữ liệu trên S3, phát hiện schema và tạo metadata table trong Data Catalog.</p>
-</li>
-<li>
-<p><strong>Glue ETL Job</strong>: Chạy mã Scala hoặc Python (Spark) để xử lý, biến đổi dữ liệu và xuất kết quả sang S3 hoặc Redshift.</p>
-</li>
-</ul>
-<h4 id="5-amazon-redshift">5. Amazon Redshift</h4>
-<p><strong>Amazon Redshift</strong> là dịch vụ data warehouse trên nền tảng đám mây, tối ưu cho các truy vấn phân tích dữ liệu lớn (OLAP). Redshift hỗ trợ lưu trữ dữ liệu theo mô hình star/snowflake schema, cho phép thực hiện các truy vấn phức tạp với hiệu năng cao, phù hợp cho các bài toán BI, phân tích dữ liệu.</p>
-<h4 id="6-apache-airflow-mwaa">6. Apache Airflow (MWAA)</h4>
-<p><strong>Apache Airflow</strong> là nền tảng mã nguồn mở dùng để lập lịch, điều phối và giám sát các workflow (luồng công việc) phức tạp. Trên AWS, Airflow được cung cấp dưới dạng dịch vụ Managed Workflows for Apache Airflow (MWAA). Airflow sử dụng các DAGs (Directed Acyclic Graphs) để định nghĩa các bước xử lý dữ liệu, hỗ trợ tự động hóa, retry, alert, và tích hợp với nhiều dịch vụ AWS.</p>
-<h4 id="7-amazon-quicksight">7. Amazon QuickSight</h4>
-<p><strong>Amazon QuickSight</strong> là dịch vụ BI (Business Intelligence) trên AWS, hỗ trợ kết nối đến nhiều nguồn dữ liệu như Redshift, S3,&hellip; QuickSight cho phép xây dựng dashboard, biểu đồ, báo cáo tương tác với giao diện kéo-thả, hỗ trợ phân tích và trực quan hóa dữ liệu cho người dùng doanh nghiệp.</p>
-<h4 id="8-aws-cloudformation-iam-vpc-secrets-manager">8. AWS CloudFormation, IAM, VPC, Secrets Manager</h4>
-<ul>
-<li>
-<p><strong>CloudFormation</strong>: Dịch vụ quản lý hạ tầng dưới dạng mã (Infrastructure as Code), giúp tự động hóa việc triển khai và quản lý tài nguyên AWS.</p>
-</li>
-<li>
-<p><strong>IAM (Identity and Access Management)</strong>: Quản lý quyền truy cập, xác thực và phân quyền cho người dùng/dịch vụ.</p>
-</li>
-<li>
-<p><strong>VPC (Virtual Private Cloud)</strong>: Tạo mạng ảo riêng biệt trên AWS, kiểm soát truy cập và bảo mật cho các tài nguyên.</p>
-</li>
-<li>
-<p><strong>Secrets Manager</strong>: Lưu trữ, quản lý và truy xuất thông tin nhạy cảm (API key, mật khẩu, v.v.) một cách an toàn.</p>
-</li>
-</ul>
+	<p>Trong hệ thống ETL tự động trên AWS, các file môi trường là tập hợp mã nguồn Python và cấu hình được sử dụng bởi Apache Airflow (MWAA) để điều phối toàn bộ quy trình thu thập – xử lý – lưu trữ dữ liệu. Các file này được lưu trữ trong Amazon S3, và được phân chia rõ ràng theo vai trò: môi trường của Airflow và môi trường thực thi của Glue.</p>
+<h3 id="về-môi-trường-của-airflow">Về môi trường của Airflow</h3>
+<h4 id="1-openweather_apipy--dag-thu-thập-dữ-liệu">1. openweather_api.py – DAG thu thập dữ liệu</h4>
+<p>Đây là file đầu tiên cần được triển khai trong môi trường Airflow. File này định nghĩa một DAG tên là openweather_api_dag, có nhiệm vụ:</p>
+<p>Gọi OpenWeather API để lấy dữ liệu thời tiết thời gian thực tại TP. Hồ Chí Minh.</p>
+<p>Xử lý dữ liệu JSON trả về từ API thành định dạng bảng (dạng DataFrame của pandas).</p>
+<p>Chuyển dữ liệu sang chuỗi CSV.</p>
+<p>Upload file CSV này lên Amazon S3 (bucket vùng raw) để phục vụ bước ETL tiếp theo.</p>
+<p>Điểm nổi bật:</p>
+<p>Sử dụng requests để gọi API, pandas để xử lý dữ liệu.</p>
+<p>API key được bảo mật bằng cách lấy từ Airflow Variable (Variable.get(&lsquo;key&rsquo;)).</p>
+<p>Giao tiếp giữa các task trong DAG thông qua XCom.</p>
+<p>Upload file bằng S3CreateObjectOperatoropenweather_api.</p>
+<p>DAG này được thiết lập để chạy mỗi giờ, đảm bảo dữ liệu luôn được cập nhật liên tục.</p>
+<h4 id="2-transform_redshift_loadpy--dag-điều-phối-quá-trình-etl">2. transform_redshift_load.py – DAG điều phối quá trình ETL</h4>
+<p>DAG này tên là transform_redshift_dag, dùng để:</p>
+<p>Chờ DAG openweather_api_dag chạy thành công, thông qua ExternalTaskSensor.</p>
+<p>Sau đó gọi AWS Glue Job để thực hiện bước ETL: chuyển đổi dữ liệu và nạp vào Redshift.</p>
+<p>DAG sử dụng GlueJobOperator để gọi script ETL transform.py nằm ở ngoài môi trường Airflow (trong thư mục S3 dành riêng cho Glue)transform_redshift_load.</p>
+<h4 id="3-requirementstxt">3. requirements.txt</h4>
+<p>Nếu cần cài thêm thư viện cho Airflow (như numpy, pandas, requests), file này sẽ liệt kê các package cần cài. Được upload lên S3 tại thư mục cấu hình requirements/ để MWAA đọc khi khởi tạo môi trường.</p>
+<h4 id="4-transformpy--script-etl-chạy-trong-aws-glue">4. transform.py – Script ETL chạy trong AWS Glue</h4>
+<p>File này không nằm trong môi trường Airflow, mà được AWS Glue sử dụng để xử lý dữ liệu bằng PySpark:</p>
+<p>Đọc file CSV từ S3 (được tạo bởi DAG đầu tiên).</p>
+<p>Chuyển đổi kiểu dữ liệu, chuẩn hóa timestamp (dt, dt_iso, ingest_time).</p>
+<p>Ghi dữ liệu vào Redshift, đồng thời tạo bảng nếu chưa tồn tại (CREATE TABLE IF NOT EXISTS &hellip;)transform.</p>
+<p>File này được gọi trong DAG transform_redshift_dag thông qua script_location.</p>
 
 
 
@@ -560,7 +510,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -575,7 +524,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -592,9 +540,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -615,6 +560,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -629,6 +575,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -653,10 +600,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-architecture/" title="Các công cụ sử dụng và Sơ đồ kiến trúc"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/3-etl-process/" title="Các bước thực hiện quá trình ETL tự động"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-architecture/2.2-architecture/" title="Xây dựng Sơ đồ Kiến trúc" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-introduce/" title="Giới thiệu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

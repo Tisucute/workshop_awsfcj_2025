@@ -27,18 +27,6 @@
                 href="//localhost:1313/1-introduce/"
                 />
   </url><url>
-    <loc>//localhost:1313/2-architecture/2.2-architecture/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="//localhost:1313/vi/2-architecture/2.2-architecture/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="//localhost:1313/2-architecture/2.2-architecture/"
-                />
-  </url><url>
     <loc>//localhost:1313/2-architecture/2.1-tools/</loc>
     <xhtml:link
                 rel="alternate"
@@ -49,6 +37,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="//localhost:1313/2-architecture/2.1-tools/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-architecture/2.2-architecture/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture/2.2-architecture/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture/2.2-architecture/"
                 />
   </url><url>
     <loc>//localhost:1313/2-architecture/</loc>

@@ -1,7 +1,7 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 date =  {{ .Date }}
-weight = 5
+weight = 7
 +++
 
 Lorem Ipsum.
