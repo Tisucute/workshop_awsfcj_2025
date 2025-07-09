@@ -15,17 +15,52 @@
                 href="//localhost:1313/"
                 />
   </url><url>
-    <loc>//localhost:1313/6-cleanup/</loc>
-    <lastmod>1970-01-01T07:33:42+07:00</lastmod>
+    <loc>//localhost:1313/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/6-cleanup/"
+                href="//localhost:1313/vi/1-introduce/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/6-cleanup/"
+                href="//localhost:1313/1-introduce/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-architecture/2.2-architecture/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture/2.2-architecture/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture/2.2-architecture/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-architecture/2.1-tools/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture/2.1-tools/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture/2.1-tools/"
+                />
+  </url><url>
+    <loc>//localhost:1313/2-architecture/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture/"
                 />
   </url><url>
     <loc>//localhost:1313/categories/</loc>

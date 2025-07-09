@@ -13,7 +13,7 @@ chapter : false
 
 ### Tổng quan
 
-Đề tài "Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS" là sự tâm huyết và nỗ lực nhằm xây dựng một hệ thống toàn diện, tự động hóa việc thu thập, xử lý và hiển thị trực quan các luồng dữ liệu thời gian thực dựa trên nền tảng Amazon Web Services (AWS). Với mục tiêu đáp ứng nhu cầu phân tích và ra quyết định nhanh chóng, hiệu quả dựa trên dữ liệu mới nhất, hệ thống được thiết kế bao gồm các thành phần chính: thu thập dữ liệu thời tiết từ API của OpenWeather bằng Python và lưu trữ vào AWS S3; orchestration thông qua Amazon Managed Workflows for Apache Airflow (MWAA); xử lý và chuyển đổi dữ liệu bằng AWS Glue; lưu trữ dữ liệu vào kho dữ liệu AWS Redshift; và cuối cùng trực quan hóa kết quả bằng AWS QuickSight trên dashboard trực quan.
+Đề tài **"Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS"** là sự tâm huyết và nỗ lực nhằm xây dựng một hệ thống toàn diện, tự động hóa việc thu thập, xử lý và hiển thị trực quan các luồng dữ liệu thời gian thực dựa trên nền tảng Amazon Web Services (AWS). Với mục tiêu đáp ứng nhu cầu phân tích và ra quyết định nhanh chóng, hiệu quả dựa trên dữ liệu mới nhất, hệ thống được thiết kế bao gồm các thành phần chính: thu thập dữ liệu thời tiết từ API của OpenWeather bằng Python và lưu trữ vào AWS S3; orchestration thông qua Amazon Managed Workflows for Apache Airflow (MWAA); xử lý và chuyển đổi dữ liệu bằng AWS Glue; lưu trữ dữ liệu vào kho dữ liệu AWS Redshift; và cuối cùng trực quan hóa kết quả bằng AWS QuickSight trên dashboard trực quan.
 
 Việc triển khai hạ tầng được thực hiện thông qua mã nguồn (Infrastructure as Code - IaC) sử dụng AWS CloudFormation, đảm bảo tính nhất quán, tự động hóa và dễ dàng quản lý, mở rộng khi có nhu cầu thay đổi hoặc bổ sung tài nguyên. Các chính sách bảo mật và quản lý truy cập cũng được thiết lập thông qua AWS IAM và môi trường bảo mật mạng riêng ảo (VPC) nhằm đảm bảo an toàn cho hệ thống.
 
@@ -42,3 +42,5 @@ Dữ liệu chỉ đủ để phân tích, nếu nhiều hơn có thể phát si
    - [Phân tích với AWS Redshift](4-analysis-visualization/4.1-redshift/)
    - [Trực quan hóa với AWS Quicksight](4-analysis-visualization/4.2-quicksight/)
 5. [Dọn dẹp tài nguyên](5-cleanup/)
+6. [Các lỗi có thể gặp và cách khắc phục](6-common-errors/)
+7. [Kết luận](7-in-conclusion/)

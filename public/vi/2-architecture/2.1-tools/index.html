@@ -12,21 +12,21 @@
     <title>Các công cụ được sử dụng :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1751967677" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1751967677" rel="stylesheet">
-    <link href="/css/hybrid.css?1751967677" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1751967677" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1751967677" rel="stylesheet">
-    <link href="/css/auto-complete.css?1751967677" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1751967677" rel="stylesheet">
-    <link href="/css/theme.css?1751967677" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1751967677" rel="stylesheet">
+    <link href="/css/nucleus.css?1752038079" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752038079" rel="stylesheet">
+    <link href="/css/hybrid.css?1752038079" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752038079" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752038079" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752038079" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752038079" rel="stylesheet">
+    <link href="/css/theme.css?1752038079" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752038079" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1751967677" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752038079" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1751967677"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752038079"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1751967677"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1751967677"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752038079"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752038079"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1751967677"></script>
+<script type="text/javascript" src="/js/search.js?1752038079"></script>
 
     
   </div>
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/vi/2-architecture/" title="Kiến trúc" class="dd-item 
+    <li data-nav-id="/vi/2-architecture/" title="Các công cụ sử dụng và Sơ đồ kiến trúc" class="dd-item 
         parent
         
         
         ">
       <a href="/vi/2-architecture/">
-           <b> 2. </b> Kiến trúc
+           <b> 2. </b> Các công cụ sử dụng và Sơ đồ kiến trúc
           
             <i class="fas fa-check read-icon"></i>
           
@@ -194,58 +194,6 @@
  
 
           
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-data/" title="Tập dữ liệu được sử dụng" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-data/">
-           <b> 3. </b> Tập dữ liệu được sử dụng
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/6-cleanup/">
-          <b>6. </b>Dọn dẹp tài nguyên  
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
          
     </ul>
 
@@ -275,6 +223,18 @@
             <select id="select-language" onchange="location = this.value;">
           
           
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/2-architecture/2.1-tools/">English</option>
+                    
+                  
+              
+                  
+              
           
               
               
@@ -365,7 +325,7 @@
             
           
           
-            <a href='/vi/'>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</a> > <a href='/vi/2-architecture/'>Kiến trúc</a> > Các công cụ được sử dụng
+            <a href='/vi/'>Xây dựng kiến trúc xử lý tự động và trực quan hóa dữ liệu thời gian thực trên AWS</a> > <a href='/vi/2-architecture/'>Các công cụ sử dụng và Sơ đồ kiến trúc</a> > Các công cụ được sử dụng
           
         
           
@@ -382,7 +342,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#các-công-cụ-được-sử-dụng">Các công cụ được sử dụng</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -410,73 +370,70 @@
 
 
 
-	<h3 id="các-công-cụ-được-sử-dụng">Các công cụ được sử dụng</h3>
-<h4 id="1-data-ingestion">1. Data Ingestion</h4>
+	<h4 id="1-openweather-api">1. OpenWeather API</h4>
+<p><strong>OpenWeather API</strong> là dịch vụ cung cấp dữ liệu thời tiết thời gian thực thông qua các RESTful endpoint. Người dùng có thể truy xuất các thông tin như nhiệt độ, độ ẩm, áp suất, v.v. bằng cách gửi yêu cầu HTTP và nhận về dữ liệu ở định dạng JSON hoặc XML.</p>
+<h4 id="2-python-script">2. Python Script</h4>
+<p><strong>Python</strong> là ngôn ngữ lập trình phổ biến, mạnh mẽ trong xử lý dữ liệu. Trong hệ thống này, Python script được sử dụng để:</p>
 <ul>
-<li><strong>OpenWeather API</strong>: Nguồn dữ liệu thời tiết thời gian thực (temperature, humidity, v.v.) qua RESTful endpoint.</li>
-<li><strong>Python Script</strong>:
-<ul>
-<li>Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)</li>
-<li>Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.</li>
-</ul>
+<li>
+<p>Gọi API (ví dụ: OpenWeather API) để lấy dữ liệu.</p>
+</li>
+<li>
+<p>Phân tích cú pháp (parse) dữ liệu JSON trả về.</p>
+</li>
+<li>
+<p>Làm sạch, chuẩn hóa dữ liệu (chuyển đổi múi giờ, đổi tên trường, v.v.).</p>
+</li>
+<li>
+<p>Xuất dữ liệu ra các định dạng như CSV, Parquet, hoặc JSON.</p>
+</li>
+<li>
+<p>Đẩy dữ liệu lên Amazon S3 để lưu trữ.</p>
 </li>
 </ul>
-<h4 id="2-staging--storage">2. Staging &amp; Storage</h4>
+<h4 id="3-amazon-s3">3. Amazon S3</h4>
+<p><strong>Amazon S3</strong> là dịch vụ lưu trữ đối tượng (object storage) của AWS, cho phép lưu trữ và truy xuất dữ liệu với độ bền và khả năng mở rộng cao. Trong kiến trúc này, S3 được dùng để:</p>
 <ul>
-<li><strong>Amazon S3 Bucket</strong>:
-<ul>
-<li>Raw zone: chứa file thô do Python script tạo.</li>
-<li>/dags: nơi lưu definition của Airflow DAGs.</li>
-<li>requirements.txt: liệt kê dependencies (requests, boto3, pandas…) để Airflow tự động cài trước khi chạy task.</li>
-</ul>
+<li>
+<p>Lưu trữ dữ liệu thô (raw data) do Python script tạo ra.</p>
+</li>
+<li>
+<p>Lưu trữ các file định nghĩa DAGs cho Airflow.</p>
+</li>
+<li>
+<p>Lưu trữ các file requirements.txt để quản lý dependencies cho Airflow.</p>
 </li>
 </ul>
-<h4 id="3-transformation">3. Transformation</h4>
+<h4 id="4-aws-glue">4. AWS Glue</h4>
+<p><strong>AWS Glue</strong> là dịch vụ ETL (Extract, Transform, Load) serverless của AWS, hỗ trợ tự động hóa việc phát hiện schema, làm sạch, biến đổi và nạp dữ liệu. Các thành phần chính:</p>
 <ul>
-<li><strong>AWS Glue</strong>:
-<ul>
-<li>Glue Crawler (tuỳ chọn): tự động phát hiện schema từ file raw trên S3 và tạo table metadata trong Data Catalog.</li>
-<li>Glue ETL Job: chạy Scala/Python Spark để:
-<ul>
-<li>Đọc dữ liệu từ S3 (raw)</li>
-<li>Làm sạch/biến đổi (ví dụ: filter records, join thêm lookup table, enrichment…)</li>
-<li>Xuất dữ liệu đã transform sang S3 clean zone hoặc trực tiếp load vào Redshift.</li>
-</ul>
+<li>
+<p><strong>Glue Crawler</strong>: Tự động quét dữ liệu trên S3, phát hiện schema và tạo metadata table trong Data Catalog.</p>
+</li>
+<li>
+<p><strong>Glue ETL Job</strong>: Chạy mã Scala hoặc Python (Spark) để xử lý, biến đổi dữ liệu và xuất kết quả sang S3 hoặc Redshift.</p>
 </li>
 </ul>
+<h4 id="5-amazon-redshift">5. Amazon Redshift</h4>
+<p><strong>Amazon Redshift</strong> là dịch vụ data warehouse trên nền tảng đám mây, tối ưu cho các truy vấn phân tích dữ liệu lớn (OLAP). Redshift hỗ trợ lưu trữ dữ liệu theo mô hình star/snowflake schema, cho phép thực hiện các truy vấn phức tạp với hiệu năng cao, phù hợp cho các bài toán BI, phân tích dữ liệu.</p>
+<h4 id="6-apache-airflow-mwaa">6. Apache Airflow (MWAA)</h4>
+<p><strong>Apache Airflow</strong> là nền tảng mã nguồn mở dùng để lập lịch, điều phối và giám sát các workflow (luồng công việc) phức tạp. Trên AWS, Airflow được cung cấp dưới dạng dịch vụ Managed Workflows for Apache Airflow (MWAA). Airflow sử dụng các DAGs (Directed Acyclic Graphs) để định nghĩa các bước xử lý dữ liệu, hỗ trợ tự động hóa, retry, alert, và tích hợp với nhiều dịch vụ AWS.</p>
+<h4 id="7-amazon-quicksight">7. Amazon QuickSight</h4>
+<p><strong>Amazon QuickSight</strong> là dịch vụ BI (Business Intelligence) trên AWS, hỗ trợ kết nối đến nhiều nguồn dữ liệu như Redshift, S3,&hellip; QuickSight cho phép xây dựng dashboard, biểu đồ, báo cáo tương tác với giao diện kéo-thả, hỗ trợ phân tích và trực quan hóa dữ liệu cho người dùng doanh nghiệp.</p>
+<h4 id="8-aws-cloudformation-iam-vpc-secrets-manager">8. AWS CloudFormation, IAM, VPC, Secrets Manager</h4>
+<ul>
+<li>
+<p><strong>CloudFormation</strong>: Dịch vụ quản lý hạ tầng dưới dạng mã (Infrastructure as Code), giúp tự động hóa việc triển khai và quản lý tài nguyên AWS.</p>
 </li>
-</ul>
-<h4 id="4-data-warehouse">4. Data Warehouse</h4>
-<ul>
-<li><strong>Amazon Redshift Cluster</strong>:
-<ul>
-<li>Lưu trữ bảng đã qua xử lý (dim, fact) theo mô hình star/snowflake schema.</li>
-<li>Hỗ trợ query phân tích khối lượng lớn với hiệu năng cao.</li>
-</ul>
+<li>
+<p><strong>IAM (Identity and Access Management)</strong>: Quản lý quyền truy cập, xác thực và phân quyền cho người dùng/dịch vụ.</p>
 </li>
-</ul>
-<h4 id="5-orchestration">5. Orchestration</h4>
-<ul>
-<li><strong>Apache Airflow</strong>:
-<ul>
-<li>Scheduler &amp; Web UI: lên lịch (cron, interval), trigger manual, monitoring, retry, alert khi có lỗi.</li>
-<li>DAGs (viết bằng Python): định nghĩa luồng công việc.
-<ul>
-<li>PythonOperator: chạy script ingestion.</li>
-<li>GlueJobOperator: khởi job AWS Glue.</li>
-<li>RedshiftOperator hoặc PostgresOperator: chạy SQL trên Redshift nếu cần.</li>
-</ul>
+<li>
+<p><strong>VPC (Virtual Private Cloud)</strong>: Tạo mạng ảo riêng biệt trên AWS, kiểm soát truy cập và bảo mật cho các tài nguyên.</p>
 </li>
-<li>Triển khai code lên Airflow bằng cách mount folder /dags từ S3 và requirements.txt để quản lý dependencies.</li>
-</ul>
+<li>
+<p><strong>Secrets Manager</strong>: Lưu trữ, quản lý và truy xuất thông tin nhạy cảm (API key, mật khẩu, v.v.) một cách an toàn.</p>
 </li>
-</ul>
-<h4 id="6-analyze">6. Analyze</h4>
-<ul>
-<li><strong>AWS Athena</strong>: Cho phép query trực tiếp file dữ liệu trên S3 (clean zone) bằng SQL mà không cần load vào database.</li>
-<li><strong>Amazon QuickSight</strong>: Kết nối đến Redshift (hoặc Athena) để dựng dashboard, chart, alert; cung cấp giao diện drag-and-drop cho business
-– Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)
-– Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.</li>
 </ul>
 
 
@@ -587,38 +544,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
         
@@ -628,7 +553,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-architecture/" title="Kiến trúc"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/2-architecture/" title="Các công cụ sử dụng và Sơ đồ kiến trúc"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/vi/2-architecture/2.2-architecture/" title="Xây dựng Sơ đồ Kiến trúc" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -641,19 +566,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1751967677"></script>
-    <script src="/js/perfect-scrollbar.min.js?1751967677"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1751967677"></script>
-    <script src="/js/jquery.sticky.js?1751967677"></script>
-    <script src="/js/featherlight.min.js?1751967677"></script>
-    <script src="/js/highlight.pack.js?1751967677"></script>
+    <script src="/js/clipboard.min.js?1752038079"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752038079"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752038079"></script>
+    <script src="/js/jquery.sticky.js?1752038079"></script>
+    <script src="/js/featherlight.min.js?1752038079"></script>
+    <script src="/js/highlight.pack.js?1752038079"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1751967677"></script>
-    <script src="/js/learn.js?1751967677"></script>
-    <script src="/js/hugo-learn.js?1751967677"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752038079"></script>
+    <script src="/js/learn.js?1752038079"></script>
+    <script src="/js/hugo-learn.js?1752038079"></script>
 
-    <link href="/mermaid/mermaid.css?1751967677" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1751967677"></script>
+    <link href="/mermaid/mermaid.css?1752038079" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752038079"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

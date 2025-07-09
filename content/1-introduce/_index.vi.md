@@ -41,11 +41,18 @@ pre : " <b> 1. </b> "
       <li><strong>Thực hiện các thao tác:</strong> 2 - 3 tiếng (tùy vào độ quen thuộc với các công cụ)</li>
     </ul>
     <div style="margin-bottom: 10px;">
-      <div style="background:rgb(243, 157, 156); color:rgb(177, 35, 35); border-left: 5px solid;color: rgb(192, 12, 12); padding: 10px 16px; border-radius: 6px;">
+      <div style="background:rgb(249, 176, 175); color:rgb(177, 35, 35); border-left: 5px solid;color: rgb(192, 12, 12); padding: 10px 16px; border-radius: 6px;">
         <strong>Chú ý:</strong> Dữ liệu chỉ đủ để phân tích, nếu nhiều hơn có thể phát sinh thêm nhiều chi phí.
       </div>
     </div>
-  </div>
+    <div style="font-size: 17px;"><strong>Điều kiện tiên quyết</strong></div>
+    <ul style="font-size: 16px;">
+      <li>Có tài khoản AWS và quyền truy cập các dịch vụ cần thiết (S3, IAM, Glue, Redshift, MWAA, QuickSight,...).</li>
+      <li>Đã cài đặt Python và các thư viện liên quan (requests, boto3,...).</li>
+      <li>Máy tính kết nối internet ổn định.</li>
+      <li>Kiến thức cơ bản về AWS và dòng lệnh.</li>
+    </ul>
+    <div style="font-size: 17px;"><strong>Khoản phí ước tính</strong>:Trong khoảng từ <strong>20$</strong> tới <strong>30$</strong></div>
   
 </div>
 

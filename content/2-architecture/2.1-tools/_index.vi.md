@@ -5,52 +5,55 @@ weight : 2
 chapter : false
 pre : " <b> 2.1 </b> "
 ---
-### Các công cụ được sử dụng
+#### 1. OpenWeather API
 
-#### 1. Data Ingestion
+**OpenWeather API** là dịch vụ cung cấp dữ liệu thời tiết thời gian thực thông qua các RESTful endpoint. Người dùng có thể truy xuất các thông tin như nhiệt độ, độ ẩm, áp suất, v.v. bằng cách gửi yêu cầu HTTP và nhận về dữ liệu ở định dạng JSON hoặc XML.
 
-- **OpenWeather API**: Nguồn dữ liệu thời tiết thời gian thực (temperature, humidity, v.v.) qua RESTful endpoint.
-- **Python Script**: 
-  - Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)
-  - Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.
+#### 2. Python Script
+**Python** là ngôn ngữ lập trình phổ biến, mạnh mẽ trong xử lý dữ liệu. Trong hệ thống này, Python script được sử dụng để:
 
-#### 2. Staging & Storage
+- Gọi API (ví dụ: OpenWeather API) để lấy dữ liệu.
 
-- **Amazon S3 Bucket**:
-  - Raw zone: chứa file thô do Python script tạo.
-  - /dags: nơi lưu definition của Airflow DAGs.
-  - requirements.txt: liệt kê dependencies (requests, boto3, pandas…) để Airflow tự động cài trước khi chạy task.
+- Phân tích cú pháp (parse) dữ liệu JSON trả về.
 
-#### 3. Transformation
+- Làm sạch, chuẩn hóa dữ liệu (chuyển đổi múi giờ, đổi tên trường, v.v.).
 
-- **AWS Glue**:
-  - Glue Crawler (tuỳ chọn): tự động phát hiện schema từ file raw trên S3 và tạo table metadata trong Data Catalog.
-  - Glue ETL Job: chạy Scala/Python Spark để:
-    - Đọc dữ liệu từ S3 (raw)
-    - Làm sạch/biến đổi (ví dụ: filter records, join thêm lookup table, enrichment…)
-    - Xuất dữ liệu đã transform sang S3 clean zone hoặc trực tiếp load vào Redshift.
+- Xuất dữ liệu ra các định dạng như CSV, Parquet, hoặc JSON.
 
-#### 4. Data Warehouse
+- Đẩy dữ liệu lên Amazon S3 để lưu trữ.
 
-- **Amazon Redshift Cluster**:
-  - Lưu trữ bảng đã qua xử lý (dim, fact) theo mô hình star/snowflake schema.
-  - Hỗ trợ query phân tích khối lượng lớn với hiệu năng cao.
+#### 3. Amazon S3
+**Amazon S3** là dịch vụ lưu trữ đối tượng (object storage) của AWS, cho phép lưu trữ và truy xuất dữ liệu với độ bền và khả năng mở rộng cao. Trong kiến trúc này, S3 được dùng để:
 
-#### 5. Orchestration
+- Lưu trữ dữ liệu thô (raw data) do Python script tạo ra.
 
-- **Apache Airflow**:
-  - Scheduler & Web UI: lên lịch (cron, interval), trigger manual, monitoring, retry, alert khi có lỗi.
-  - DAGs (viết bằng Python): định nghĩa luồng công việc.
-    - PythonOperator: chạy script ingestion.
-    - GlueJobOperator: khởi job AWS Glue.
-    - RedshiftOperator hoặc PostgresOperator: chạy SQL trên Redshift nếu cần.
-  - Triển khai code lên Airflow bằng cách mount folder /dags từ S3 và requirements.txt để quản lý dependencies.
+- Lưu trữ các file định nghĩa DAGs cho Airflow.
 
-#### 6. Analyze
+- Lưu trữ các file requirements.txt để quản lý dependencies cho Airflow.
 
-- **AWS Athena**: Cho phép query trực tiếp file dữ liệu trên S3 (clean zone) bằng SQL mà không cần load vào database.
-- **Amazon QuickSight**: Kết nối đến Redshift (hoặc Athena) để dựng dashboard, chart, alert; cung cấp giao diện drag-and-drop cho business
-– Gọi API, parse JSON, làm sạch sơ bộ (ví dụ: chuyển timezone, chuẩn hoá tên trường…)
-– Xuất file (CSV/Parquet/JSON) và ghi lên Amazon S3.
+#### 4. AWS Glue
+**AWS Glue** là dịch vụ ETL (Extract, Transform, Load) serverless của AWS, hỗ trợ tự động hóa việc phát hiện schema, làm sạch, biến đổi và nạp dữ liệu. Các thành phần chính:
+
+- **Glue Crawler**: Tự động quét dữ liệu trên S3, phát hiện schema và tạo metadata table trong Data Catalog.
+
+- **Glue ETL Job**: Chạy mã Scala hoặc Python (Spark) để xử lý, biến đổi dữ liệu và xuất kết quả sang S3 hoặc Redshift.
+
+#### 5. Amazon Redshift
+**Amazon Redshift** là dịch vụ data warehouse trên nền tảng đám mây, tối ưu cho các truy vấn phân tích dữ liệu lớn (OLAP). Redshift hỗ trợ lưu trữ dữ liệu theo mô hình star/snowflake schema, cho phép thực hiện các truy vấn phức tạp với hiệu năng cao, phù hợp cho các bài toán BI, phân tích dữ liệu.
+
+#### 6. Apache Airflow (MWAA)
+**Apache Airflow** là nền tảng mã nguồn mở dùng để lập lịch, điều phối và giám sát các workflow (luồng công việc) phức tạp. Trên AWS, Airflow được cung cấp dưới dạng dịch vụ Managed Workflows for Apache Airflow (MWAA). Airflow sử dụng các DAGs (Directed Acyclic Graphs) để định nghĩa các bước xử lý dữ liệu, hỗ trợ tự động hóa, retry, alert, và tích hợp với nhiều dịch vụ AWS.
+
+#### 7. Amazon QuickSight
+**Amazon QuickSight** là dịch vụ BI (Business Intelligence) trên AWS, hỗ trợ kết nối đến nhiều nguồn dữ liệu như Redshift, S3,... QuickSight cho phép xây dựng dashboard, biểu đồ, báo cáo tương tác với giao diện kéo-thả, hỗ trợ phân tích và trực quan hóa dữ liệu cho người dùng doanh nghiệp.
+
+#### 8. AWS CloudFormation, IAM, VPC, Secrets Manager
+- **CloudFormation**: Dịch vụ quản lý hạ tầng dưới dạng mã (Infrastructure as Code), giúp tự động hóa việc triển khai và quản lý tài nguyên AWS.
+
+- **IAM (Identity and Access Management)**: Quản lý quyền truy cập, xác thực và phân quyền cho người dùng/dịch vụ.
+
+- **VPC (Virtual Private Cloud)**: Tạo mạng ảo riêng biệt trên AWS, kiểm soát truy cập và bảo mật cho các tài nguyên.
+
+- **Secrets Manager**: Lưu trữ, quản lý và truy xuất thông tin nhạy cảm (API key, mật khẩu, v.v.) một cách an toàn.
 
 

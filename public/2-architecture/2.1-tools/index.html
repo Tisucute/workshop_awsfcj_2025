@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Building an Automated Real-Time Data Processing and Visualization Architecture on AWS :: AWS System Manager</title>
+    <title>Tools :: AWS System Manager</title>
 
     
     <link href="/css/nucleus.css?1752038079" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/2-architecture/2.1-tools/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -109,7 +109,7 @@
   
     
     <li data-nav-id="/2-architecture/" title="Tools and Architecture Diagram" class="dd-item 
-        
+        parent
         
         
         ">
@@ -141,7 +141,7 @@
     
     <li data-nav-id="/2-architecture/2.1-tools/" title="Tools" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/2-architecture/2.1-tools/">
@@ -229,7 +229,7 @@
                   
                     
                     
-                      <option id="en" value="//localhost:1313/" selected>English</option>
+                      <option id="en" value="//localhost:1313/2-architecture/2.1-tools/" selected>English</option>
                     
                   
               
@@ -243,7 +243,7 @@
                   
                     
                     
-                      <option id="vi" value="//localhost:1313/vi/">Tiếng Việt</option>
+                      <option id="vi" value="//localhost:1313/vi/2-architecture/2.1-tools/">Tiếng Việt</option>
                     
                   
               
@@ -298,69 +298,152 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Building an Automated Real-Time Data Processing and Visualization Architecture on AWS</a> > <a href='/2-architecture/'>Tools and Architecture Diagram</a> > Tools
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Tools
+            </h1>
+          
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
-<h1 id="building-an-automated-real-time-data-processing-and-visualization-architecture-on-aws">Building an Automated Real-Time Data Processing and Visualization Architecture on AWS</h1>
-<p><strong>Author:</strong> Nguyễn Ngọc Anh Thư<br>
-<strong>Student ID:</strong> 22133059<br>
-<strong>Email:</strong> <a href="mailto:ngocanhthugialai@gmail.com">ngocanhthugialai@gmail.com</a><br>
-<strong>University:</strong> Ho Chi Minh City University of Technology and Education (HCMUTE)</p>
-<h3 id="overview">Overview</h3>
-<p>The project <strong>&ldquo;Building an Automated Processing and Real-time Data Visualization Architecture on AWS&rdquo;</strong> represents my dedication and effort to develop a comprehensive system that automates the collection, processing, and visualization of real-time data streams using Amazon Web Services (AWS). With the aim of meeting the increasing demand for timely analysis and decision-making based on the latest data, the system is designed to include key components: weather data collection from OpenWeather API using Python and storage in AWS S3; orchestration managed by Amazon Managed Workflows for Apache Airflow (MWAA); data processing and transformation using AWS Glue; data storage in AWS Redshift warehouse; and finally, visualization of results through AWS QuickSight on an intuitive dashboard.</p>
-<p>Infrastructure deployment is implemented through Infrastructure as Code (IaC) using AWS CloudFormation, ensuring consistency, automation, ease of management, and scalability for future resource changes or additions. Security policies and access management are also configured through AWS IAM and a secure Virtual Private Cloud (VPC) environment to ensure system safety.</p>
-<p>I genuinely hope this report not only accurately reflects my efforts but also serves as a friendly, easy-to-understand resource for students new to AWS or modern development methodologies. Through this work, I aim to convey my enthusiasm and passion for technology and support students in gaining confidence as they embark on their AWS exploration and application journey.</p>
-<h3 id="implementation-timeline">Implementation Timeline</h3>
+
+	<h4 id="1-openweather-api">1. OpenWeather API</h4>
+<p><strong>OpenWeather API</strong> is a service providing real-time weather data through RESTful endpoints. Users can retrieve information such as temperature, humidity, pressure, v.v. by sending HTTP requests and receiving data in JSON or XML format.</p>
+<h4 id="2-python-script">2. Python Script</h4>
+<p><strong>Python</strong> is a popular programming language, powerful in data processing. In this system, Python scripts are used to:</p>
 <ul>
-<li><strong>Data collection:</strong> 1 day</li>
+<li>
+<p>Call APIs (e.g.: OpenWeather API) to retrieve data.</p>
+</li>
+<li>
+<p>Parse JSON data returned.</p>
+</li>
+<li>
+<p>Clean and normalize data (convert time zones, rename fields, v.v.).</p>
+</li>
+<li>
+<p>Export data to formats such as CSV, Parquet, or JSON.</p>
+</li>
+<li>
+<p>Push data to Amazon S3 for storage.</p>
+</li>
+</ul>
+<h4 id="3-amazon-s3">3. Amazon S3</h4>
+<p>Amazon S3 is AWS’s object storage service, allowing data storage and retrieval with high durability and scalability. In this architecture, S3 is used to:</p>
+<ul>
+<li>
+<p>Store raw data generated by Python scripts.</p>
+</li>
+<li>
+<p>Store DAG definition files for Airflow.</p>
+</li>
+<li>
+<p>Store requirements.txt files to manage dependencies for Airflow.</p>
+</li>
+</ul>
+<h4 id="4-aws-glue">4. AWS Glue</h4>
+<p><strong>AWS Glue</strong> is AWS’s serverless ETL (Extract, Transform, Load) service, supporting automation of schema detection, data cleaning, transformation, and loading. Key components:</p>
+<ul>
+<li>
+<p><strong>Glue Crawler</strong>: Automatically scans data on S3, detects schema, and creates metadata tables in the Data Catalog.</p>
+</li>
+<li>
+<p><strong>Glue ETL Job</strong>: Executes Scala or Python (Spark) code to process, transform data, and export results to S3 or Redshift.</p>
+</li>
+</ul>
+<h4 id="5-amazon-redshift">5. Amazon Redshift</h4>
+<p><strong>Amazon Redshift</strong> is a cloud-based data warehouse service optimized for analytical queries on large datasets (OLAP). Redshift supports storing data using star/snowflake schema models, enabling execution of complex queries with high performance, suitable for BI tasks, data analytics.</p>
+<h4 id="6-apache-airflow-mwaa">6. Apache Airflow (MWAA)</h4>
+<p><strong>Apache Airflow</strong> is an open-source platform for scheduling, orchestrating, and monitoring complex workflows. On AWS, Airflow is provided as Managed Workflows for Apache Airflow (MWAA). Airflow uses DAGs (Directed Acyclic Graphs) to define data processing steps, supporting automation, retry, alert, and integration with multiple AWS services.</p>
+<h4 id="7-amazon-quicksight">7. Amazon QuickSight</h4>
+<p><strong>Amazon QuickSight</strong> is a Business Intelligence (BI) service on AWS, supporting connections to multiple data sources such as Redshift, S3, v.v. QuickSight enables building interactive dashboards, charts, and reports using a drag-and-drop interface, supporting data analysis and visualization for business users.</p>
+<h4 id="8-aws-cloudformation-iam-vpc-secrets-manager">8. AWS CloudFormation, IAM, VPC, Secrets Manager</h4>
+<ul>
+<li>
+<p><strong>CloudFormation</strong>: Infrastructure as Code service, automating the deployment and management of AWS resources.</p>
+</li>
+<li>
+<p><strong>IAM (Identity and Access Management)</strong>: Manages access rights, authentication, and permissions for users/services.</p>
+</li>
+<li>
+<p><strong>VPC (Virtual Private Cloud)</strong>: Creates isolated virtual networks on AWS, controls access, and secures resources.</p>
+</li>
+<li>
+<p><strong>Secrets Manager</strong>: Securely stores, manages, and retrieves sensitive information (API keys, passwords, v.v.).</p>
+</li>
 </ul>
 
-<div class="notices warning" ><p>The data is only sufficient for analysis; collecting more may incur additional costs.</p>
-</div>
 
-<ul>
-<li><strong>Execution of steps:</strong> 2–3 hours (depending on familiarity with the tools)</li>
-</ul>
-<h3 id="contents">Contents</h3>
-<ol>
-<li><a href="/1-introduce/">Introduction</a></li>
-<li><a href="/2-architecture/">Tools and Architecture Diagram</a>
-<ul>
-<li><a href="/2-architecture/2.1-tools/">Tools Used</a></li>
-<li><a href="/2-architecture/2.2-architecture/">Architecture Diagram</a></li>
-</ul>
-</li>
-<li><a href="3-etl-process/">Steps for Automated ETL Process</a>
-<ul>
-<li><a href="3-etl-process/3.1-env-files/">About Environment Files</a></li>
-<li><a href="3-etl-process/3.2-infra-as-code/">Infrastructure as Code Deployment</a></li>
-<li><a href="3-etl-process/3.3-setup-variables-connection/">Setting Variables, Creating Connections, and Uploading Environment</a></li>
-<li><a href="3-etl-process/3.4-etl-execution/">ETL Execution Process</a></li>
-</ul>
-</li>
-<li><a href="4-analysis-visualization/">Analysis and Visualization</a>
-<ul>
-<li><a href="4-analysis-visualization/4.1-redshift/">Analysis with AWS Redshift</a></li>
-<li><a href="4-analysis-visualization/4.2-quicksight/">Visualization with AWS Quicksight</a></li>
-</ul>
-</li>
-<li><a href="5-cleanup/">Cleanup</a></li>
-<li><a href="6-common-errors/">Common Errors and Troubleshooting</a></li>
-<li><a href="7-in-conclusion/">In Conclusion</a></li>
-</ol>
+
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
         
         </div> 
         
@@ -411,6 +494,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -425,6 +509,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -441,6 +526,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -465,8 +553,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/2-architecture/" title="Tools and Architecture Diagram"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/1-introduce/" title="Introduce" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/2-architecture/2.2-architecture/" title="Architecture Diagram" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -504,4 +594,3 @@
 </script>
   </body>
 </html>
-

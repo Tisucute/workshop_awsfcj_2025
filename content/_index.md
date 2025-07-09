@@ -14,7 +14,7 @@ chapter : false
 
 ### Overview
 
-The project "Building an Automated Processing and Real-time Data Visualization Architecture on AWS" represents my dedication and effort to develop a comprehensive system that automates the collection, processing, and visualization of real-time data streams using Amazon Web Services (AWS). With the aim of meeting the increasing demand for timely analysis and decision-making based on the latest data, the system is designed to include key components: weather data collection from OpenWeather API using Python and storage in AWS S3; orchestration managed by Amazon Managed Workflows for Apache Airflow (MWAA); data processing and transformation using AWS Glue; data storage in AWS Redshift warehouse; and finally, visualization of results through AWS QuickSight on an intuitive dashboard.
+The project **"Building an Automated Processing and Real-time Data Visualization Architecture on AWS"** represents my dedication and effort to develop a comprehensive system that automates the collection, processing, and visualization of real-time data streams using Amazon Web Services (AWS). With the aim of meeting the increasing demand for timely analysis and decision-making based on the latest data, the system is designed to include key components: weather data collection from OpenWeather API using Python and storage in AWS S3; orchestration managed by Amazon Managed Workflows for Apache Airflow (MWAA); data processing and transformation using AWS Glue; data storage in AWS Redshift warehouse; and finally, visualization of results through AWS QuickSight on an intuitive dashboard.
 
 Infrastructure deployment is implemented through Infrastructure as Code (IaC) using AWS CloudFormation, ensuring consistency, automation, ease of management, and scalability for future resource changes or additions. Security policies and access management are also configured through AWS IAM and a secure Virtual Private Cloud (VPC) environment to ensure system safety.
 
@@ -23,11 +23,11 @@ I genuinely hope this report not only accurately reflects my efforts but also se
 ### Implementation Timeline
 
 - **Data collection:** 1 day 
-- **Execution of steps:** 2–3 hours (depending on familiarity with the tools)
+
 {{% notice warning %}}
 The data is only sufficient for analysis; collecting more may incur additional costs.
 {{% /notice %}}
-- **Thực hiện các thao tác:** 2 - 3 tiếng (tùy vào độ quen thuộc với các công cụ)
+- **Execution of steps:** 2–3 hours (depending on familiarity with the tools)
 
 ### Contents
 
@@ -44,3 +44,5 @@ The data is only sufficient for analysis; collecting more may incur additional c
    - [Analysis with AWS Redshift](4-analysis-visualization/4.1-redshift/)
    - [Visualization with AWS Quicksight](4-analysis-visualization/4.2-quicksight/)
 5. [Cleanup](5-cleanup/)
+6. [Common Errors and Troubleshooting](6-common-errors/)
+7. [In Conclusion](7-in-conclusion/)
