@@ -19,7 +19,7 @@ home = [ "HTML", "RSS", "JSON"]
 [Languages]
 [Languages.en]
 title = "AWS System Manager"
-weight = 1
+weight = 2
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
@@ -30,7 +30,7 @@ weight = 20
 
 [Languages.vi]
 title = "AWS System Manager"
-weight = 2
+weight = 1
 languageName = "Tiếng Việt"
 
 [[Languages.vi.menu.shortcuts]]
