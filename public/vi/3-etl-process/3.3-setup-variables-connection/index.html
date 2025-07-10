@@ -12,21 +12,21 @@
     <title>Thiết lập biến, tạo kết nối và upload môi trường :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752055692" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752055692" rel="stylesheet">
-    <link href="/css/hybrid.css?1752055692" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752055692" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752055692" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752055692" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752055692" rel="stylesheet">
-    <link href="/css/theme.css?1752055692" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752055692" rel="stylesheet">
+    <link href="/css/nucleus.css?1752147285" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752147285" rel="stylesheet">
+    <link href="/css/hybrid.css?1752147285" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752147285" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752147285" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752147285" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752147285" rel="stylesheet">
+    <link href="/css/theme.css?1752147285" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752147285" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752055692" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752147285" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752055692"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752147285"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752055692"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752055692"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752147285"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752147285"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752055692"></script>
+<script type="text/javascript" src="/js/search.js?1752147285"></script>
 
     
   </div>
@@ -411,13 +411,13 @@
  
   
     
-    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="" class="dd-item 
+    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="Trực quan hóa với Amazon QuickSight" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-analysis-visualization/4.2-quicksight/">
-          
+           <b> 4.2 </b> Trực quan hóa với Amazon QuickSight
           
             <i class="fas fa-check read-icon"></i>
           
@@ -446,13 +446,13 @@
  
   
     
-    <li data-nav-id="/vi/5-cleanup/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-cleanup/">
-          
+           <b> 5. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -472,13 +472,13 @@
  
   
     
-    <li data-nav-id="/vi/6-in-conclusion/" title="" class="dd-item 
+    <li data-nav-id="/vi/6-in-conclusion/" title="Kết luận" class="dd-item 
         
         
         
         ">
       <a href="/vi/6-in-conclusion/">
-          
+           <b> 6. </b> Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -668,7 +668,8 @@
 	<h3 id="33-thiết-lập-biến-tạo-kết-nối-và-upload-môi-trường">3.3 Thiết lập biến, tạo kết nối và upload môi trường</h3>
 <h4 id="bước-1-tạo-variables-trong-airflow">Bước 1: Tạo Variables trong Airflow</h4>
 <ol>
-<li>Mở <strong>Airflow UI</strong> → <strong>Admin → Variables</strong> → <strong>Create</strong>.</li>
+<li>Mở <strong>Airflow UI</strong> → <strong>Admin</strong> → <strong>Variables</strong> → <strong>Create</strong>.<br>
+<img alt="Tạo biến" src="/images/3.etl-process/3.3.setup-variables-connection/tao_bien_airflow.png"></li>
 <li>Tạo biến:
 <ul>
 <li><strong>Key</strong>: <code>key</code><br>
@@ -676,6 +677,17 @@
 </ul>
 </li>
 </ol>
+<p><strong>Cách lấy API key</strong></p>
+<ul>
+<li>Vào trang chủ của <strong>OpenWeather API</strong>:
+<img alt="Trang chủ API" src="/images/3.etl-process/3.3.setup-variables-connection/trang_chu_api.png"></li>
+<li>Chọn <strong>(Tên của bạn)</strong>, vào <strong>My API Keys</strong>, api key sẽ được mặc định hoặc bạn có thể generate mới:
+<img alt="Lấy API" src="/images/3.etl-process/3.3.setup-variables-connection/lay_api_key.png"></li>
+</ul>
+
+<div class="notices note" ><p>Chắc chắn là API key của bạn đang ở chế độ hoạt động.</p>
+</div>
+
 <h4 id="bước-2-tạo-connections-trong-airflow">Bước 2: Tạo Connections trong Airflow</h4>
 <ol>
 <li>Mở <strong>Airflow UI</strong> → <strong>Admin → Connections</strong> → <strong>Create</strong>.</li>
@@ -696,7 +708,12 @@
 </span></span></code></pre></div></blockquote>
 <h4 id="bước-3-tạo-2-s3-buckets-để-chứa-dữ-liệu-raw-khi-thu-thập-được-và-các-nội-dung-trong-glue-thực-hiện">Bước 3: Tạo 2 S3 Buckets để chứa dữ liệu raw khi thu thập được và các nội dung trong Glue thực hiện</h4>
 <h4 id="bước-4-kết-nối-db-để-thực-hiện-đẩy-dữ-liệu-vào-trong-redshift">Bước 4: Kết nối db để thực hiện đẩy dữ liệu vào trong Redshift</h4>
-
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>
 
 
 
@@ -994,19 +1011,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752055692"></script>
-    <script src="/js/jquery.sticky.js?1752055692"></script>
-    <script src="/js/featherlight.min.js?1752055692"></script>
-    <script src="/js/highlight.pack.js?1752055692"></script>
+    <script src="/js/clipboard.min.js?1752147285"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752147285"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752147285"></script>
+    <script src="/js/jquery.sticky.js?1752147285"></script>
+    <script src="/js/featherlight.min.js?1752147285"></script>
+    <script src="/js/highlight.pack.js?1752147285"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752055692"></script>
-    <script src="/js/learn.js?1752055692"></script>
-    <script src="/js/hugo-learn.js?1752055692"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752147285"></script>
+    <script src="/js/learn.js?1752147285"></script>
+    <script src="/js/hugo-learn.js?1752147285"></script>
 
-    <link href="/mermaid/mermaid.css?1752055692" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752055692"></script>
+    <link href="/mermaid/mermaid.css?1752147285" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752147285"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

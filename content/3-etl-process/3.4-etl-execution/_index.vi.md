@@ -56,3 +56,11 @@ Có thể thêm **Giám sát dài hạn** nếu lấy dữ liệu lâu. Ex: Dùn
 {{% /notice %}}
 
 **Tóm lại**, chỉ cần bật DAGs, sau đó Airflow tự động chạy, theo dõi kết quả và can thiệp khi có lỗi để đảm bảo pipeline vận hành ổn định và dữ liệu luôn được cập nhật.  
+
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

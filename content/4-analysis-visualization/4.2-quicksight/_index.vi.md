@@ -51,3 +51,11 @@ Quản lý dung lượng **SPICE** và **filter**, giảm dataset nếu cần
 ---
 
 Với QuickSight, chỉ mất vài thao tác để biến bảng `weather_data` trong Redshift thành các biểu đồ tương tác, hỗ trợ phân tích trực quan và ra quyết định nhanh chóng.  
+
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

@@ -55,3 +55,10 @@ Kết hợp Redshift và QuickSight, bạn có thể triển khai một giải p
 4.1 [Phân tích với AWS Redshift](4-analysis-visualization/4.1-redshift/)
 
 4.2 [Trực quan hóa với AWS Quicksight](4-analysis-visualization/4.2-quicksight/)
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

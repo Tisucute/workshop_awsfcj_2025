@@ -52,7 +52,7 @@ pre : " <b> 1. </b> "
       <li>Máy tính kết nối internet ổn định.</li>
       <li>Kiến thức cơ bản về AWS và dòng lệnh.</li>
     </ul>
-    <div style="font-size: 17px;"><strong>Khoản phí ước tính</strong>:Trong khoảng từ <strong>20$</strong> tới <strong>30$</strong></div>
+    <div style="font-size: 17px;"><strong>Khoản phí ước tính</strong>: Trong khoảng từ <strong>20$</strong> tới <strong>30$</strong></div>
   
 </div>
 

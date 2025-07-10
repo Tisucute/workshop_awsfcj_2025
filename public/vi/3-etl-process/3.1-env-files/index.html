@@ -12,21 +12,21 @@
     <title>Các file môi trường :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752055692" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752055692" rel="stylesheet">
-    <link href="/css/hybrid.css?1752055692" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752055692" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752055692" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752055692" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752055692" rel="stylesheet">
-    <link href="/css/theme.css?1752055692" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752055692" rel="stylesheet">
+    <link href="/css/nucleus.css?1752144748" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752144748" rel="stylesheet">
+    <link href="/css/hybrid.css?1752144748" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752144748" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752144748" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752144748" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752144748" rel="stylesheet">
+    <link href="/css/theme.css?1752144748" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752144748" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752055692" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752144748" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752055692"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752144748"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752055692"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752055692"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752144748"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752144748"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752055692"></script>
+<script type="text/javascript" src="/js/search.js?1752144748"></script>
 
     
   </div>
@@ -411,13 +411,13 @@
  
   
     
-    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="" class="dd-item 
+    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="Trực quan hóa với Amazon QuickSight" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-analysis-visualization/4.2-quicksight/">
-          
+           <b> 4.2 </b> Trực quan hóa với Amazon QuickSight
           
             <i class="fas fa-check read-icon"></i>
           
@@ -446,13 +446,13 @@
  
   
     
-    <li data-nav-id="/vi/5-cleanup/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-cleanup/">
-          
+           <b> 5. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -472,13 +472,13 @@
  
   
     
-    <li data-nav-id="/vi/6-in-conclusion/" title="" class="dd-item 
+    <li data-nav-id="/vi/6-in-conclusion/" title="Kết luận" class="dd-item 
         
         
         
         ">
       <a href="/vi/6-in-conclusion/">
-          
+           <b> 6. </b> Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -638,7 +638,7 @@
     <li>
       <ul>
         <li><a href="#về-môi-trường-của-airflow"><strong>Về môi trường của Airflow</strong></a></li>
-        <li><a href="#về-môi-trường-thực-thi-của-aws-glue-transformpy--script-etl-chạy-trong-aws-glue"><strong>Về môi trường thực thi của AWS Glue:</strong> transform.py – Script ETL chạy trong AWS Glue</a></li>
+        <li><a href="#về-môi-trường-thực-thi-của-aws-glue"><strong>Về môi trường thực thi của AWS Glue:</strong></a></li>
         <li><a href="#tóm-lại"><strong>Tóm lại</strong></a></li>
       </ul>
     </li>
@@ -672,9 +672,15 @@
 <h4 id="1-openweather_apipy--dag-thu-thập-dữ-liệu-thời-tiết">1. openweather_api.py – DAG thu thập dữ liệu thời tiết</h4>
 <p>Đây là file đầu tiên cần được triển khai trong môi trường Airflow. File này định nghĩa một DAG tên là openweather_api_dag, có nhiệm vụ:</p>
 <ul>
-<li>
-<p>Gọi OpenWeather API để lấy dữ liệu thời tiết thời gian thực tại TP. Hồ Chí Minh.</p>
-</li>
+<li>Gọi OpenWeather API để lấy dữ liệu thời tiết thời gian thực tại TP. Hồ Chí Minh.</li>
+</ul>
+<pre tabindex="0"><code>api_endpoint = &#39;https://api.openweathermap.org/data/2.5/weather&#39;
+    api_params = {
+        &#39;q&#39;: &#39;Thanh pho Ho Chi Minh, VN&#39;,  # Địa điểm lấy dữ liệu
+        &#39;appid&#39;: Variable.get(&#39;key&#39;),      # API key lấy từ Airflow Variable (bảo mật)
+        &#39;units&#39;: &#39;metric&#39;                  # Đơn vị nhiệt độ
+    }
+</code></pre><ul>
 <li>
 <p>Xử lý dữ liệu JSON trả về từ API thành định dạng bảng (dạng DataFrame của pandas).</p>
 </li>
@@ -685,17 +691,31 @@
 <p>Upload file CSV này lên Amazon S3 (bucket vùng raw) để phục vụ bước ETL tiếp theo.</p>
 </li>
 </ul>
-<p><strong>Luồng xử lý gồm 2 task chính:</strong></p>
+<p><strong>Luồng xử lý gồm 2 task chính:</strong> extract_api_data &raquo; upload_to_s3</p>
 <ol>
-<li>
-<p>extract_api_data: gọi API → chuẩn hóa JSON → build DataFrame → chuyển thành CSV string.</p>
-</li>
-<li>
-<p>upload_to_S3: lấy dữ liệu CSV từ XCom → upload lên bucket/raw/weather_api_data.csv.</p>
-</li>
+<li>extract_api_data: gọi API → chuẩn hóa JSON → build DataFrame → chuyển thành CSV string.</li>
 </ol>
-<p>DAG này chạy <strong>mỗi giờ</strong>, đảm bảo dữ liệu <strong>luôn cập nhật</strong>.</p>
-<h4 id="2-transform_redshift_loadpy--dag-điều-phối-quá-trình-etl">2. transform_redshift_load.py – DAG điều phối quá trình ETL</h4>
+<pre tabindex="0"><code>    #Lấy dữ liệu từ API, đẩy lên XCom
+    extract_api_data = PythonOperator(
+        task_id=&#39;extract_api_data&#39;,
+        python_callable=extract_openweather_data, #Hàm được định nghĩa trong file code
+        provide_context=True
+    )
+</code></pre><ol start="2">
+<li>upload_to_S3: lấy dữ liệu CSV từ XCom → upload lên &hellip;/raw/weather_api_data.csv.</li>
+</ol>
+<pre tabindex="0"><code>    #Upload dữ liệu lên S3 (bucket raw)
+    upload_to_s3 = S3CreateObjectOperator(
+        task_id=&#39;upload_to_S3&#39;,
+        aws_conn_id=&#39;AWS_CONN&#39;,
+        s3_bucket=&#39;airflowoutputtos3bucket-324413232937-us-east-1&#39;,
+        s3_key=&#39;raw/weather_api_data.csv&#39;,
+        data=&#34;{{ ti.xcom_pull(key=&#39;final_data&#39;) }}&#34;,
+        replace=True
+    )
+</code></pre><p>DAG này chạy <strong>mỗi giờ</strong>, đảm bảo dữ liệu <strong>luôn cập nhật</strong>.</p>
+<pre tabindex="0"><code>schedule_interval=&#39;@hourly&#39;
+</code></pre><h4 id="2-transform_redshift_loadpy--dag-điều-phối-quá-trình-etl">2. transform_redshift_load.py – DAG điều phối quá trình ETL</h4>
 <p>DAG này tên là transform_redshift_dag, dùng để:</p>
 <ul>
 <li>
@@ -708,23 +728,50 @@
 <p>DAG sử dụng GlueJobOperator để gọi script ETL transform.py nằm ở ngoài môi trường Airflow (trong thư mục S3 dành riêng cho Glue)transform_redshift_load.</p>
 </li>
 </ul>
-<p><strong>Cấu trúc gồm 2 task:</strong></p>
+<p><strong>Cấu trúc gồm 2 task:</strong> wait_openweather_api &raquo; transform_task</p>
 <ol>
-<li>
-<p>wait_openweather_api: đợi DAG trước hoàn tất.</p>
-</li>
-<li>
-<p>transform_task: gọi GlueJobOperator, trỏ đến script ETL trong S3 (transform.py).</p>
-</li>
+<li>wait_openweather_api: đợi DAG trước hoàn tất.</li>
 </ol>
+<pre tabindex="0"><code>#Chờ DAG openweather_api_dag (lấy dữ liệu từ API) hoàn thành thành công trước khi ETL
+wait_openweather_api = ExternalTaskSensor(
+    task_id=&#39;wait_openweather_api&#39;,
+    external_dag_id=&#39;openweather_api_dag&#39;,  # Tên DAG lấy dữ liệu từ OpenWeather API
+    external_task_id=None,                  # Chờ toàn bộ DAG thành công
+    timeout=2000,                          # Timeout (giây)
+    dag=dag,
+    mode=&#39;reschedule&#39;,
+    allowed_states=[&#34;success&#34;]
+)
+</code></pre><ol start="2">
+<li>transform_task: gọi GlueJobOperator, trỏ đến script ETL trong S3 (transform.py).</li>
+</ol>
+<pre tabindex="0"><code>#Trigger Glue Job để ETL dữ liệu từ S3 vào Redshift
+transform_task = GlueJobOperator(
+    task_id=&#39;transform_task&#39;,
+    job_name=&#39;glue_transform_task&#39;,  # Tên Glue Job đã tạo sẵn
+    script_location=&#39;s3://aws-glue-assets-324413232937-us-east-1/scripts/transform.py&#39;,  # Đường dẫn script ETL
+    aws_conn_id=&#39;AWS_CONN&#39;,         # Kết nối AWS trong Airflow
+    region_name=&#34;us-east-1&#34;,
+    iam_role_name=&#39;data-workshop-anhthu-RedshiftIamRole-wTwBvtcZavdl&#39;,  # IAM Role cho Glue
+    create_job_kwargs={
+        &#34;GlueVersion&#34;: &#34;4.0&#34;,
+        &#34;NumberOfWorkers&#34;: 2,
+        &#34;WorkerType&#34;: &#34;G.1X&#34;,
+        &#34;Connections&#34;: {&#34;Connections&#34;: [&#34;redshift-demo-connection&#34;]}  # Kết nối Glue với Redshift
+    },
+    dag=dag,
+)
+</code></pre>
+<div class="notices warning" ><p><strong>&lsquo;start_date&rsquo;</strong> và <strong>&lsquo;schedule_interval&rsquo;</strong> phải giống nhau, nói chung là định nghĩa DAG Airflow và các thông số mặc định cho các task trong DAG phải đồng nhất với nhau mới đảm bảo được Airflow sẽ chạy thành công như ý muốn.</p>
+</div>
+
 <h4 id="3-requirementstxt">3. requirements.txt</h4>
 <p>Nếu cần cài thêm thư viện cho Airflow (như numpy, pandas, requests), file này sẽ liệt kê các package cần cài. Được upload lên S3 tại thư mục cấu hình requirements/ để MWAA đọc khi khởi tạo môi trường và chạy đúng các task.</p>
-<div class="chroma">
-  <pre><code class="language-python">numpy==1.24.3
+<pre tabindex="0"><code>numpy==1.24.3
 pandas==1.3.5
-requests==2.31.0</code></pre>
-</div>
-<h3 id="về-môi-trường-thực-thi-của-aws-glue-transformpy--script-etl-chạy-trong-aws-glue"><strong>Về môi trường thực thi của AWS Glue:</strong> transform.py – Script ETL chạy trong AWS Glue</h3>
+requests==2.31.0
+</code></pre><h3 id="về-môi-trường-thực-thi-của-aws-glue"><strong>Về môi trường thực thi của AWS Glue:</strong></h3>
+<h4 id="transformpy--script-etl-chạy-trong-aws-glue">transform.py – Script ETL chạy trong AWS Glue</h4>
 <ul>
 <li>
 <p>File này <strong>không</strong> nằm trong môi trường Airflow, mà được AWS Glue sử dụng để xử lý dữ liệu bằng PySpark.</p>
@@ -754,7 +801,12 @@ requests==2.31.0</code></pre>
 </li>
 </ul>
 <p>Việc chuẩn bị chính xác các file này giúp MWAA hoạt động <strong>mượt mà</strong>, đảm bảo <strong>tính tự động</strong>, <strong>chính xác</strong> và <strong>có thể mở rộng</strong> cho hệ thống ETL thời tiết.</p>
-
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>
 
 
 
@@ -1049,19 +1101,19 @@ requests==2.31.0</code></pre>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752055692"></script>
-    <script src="/js/jquery.sticky.js?1752055692"></script>
-    <script src="/js/featherlight.min.js?1752055692"></script>
-    <script src="/js/highlight.pack.js?1752055692"></script>
+    <script src="/js/clipboard.min.js?1752144748"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752144748"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752144748"></script>
+    <script src="/js/jquery.sticky.js?1752144748"></script>
+    <script src="/js/featherlight.min.js?1752144748"></script>
+    <script src="/js/highlight.pack.js?1752144748"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752055692"></script>
-    <script src="/js/learn.js?1752055692"></script>
-    <script src="/js/hugo-learn.js?1752055692"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752144748"></script>
+    <script src="/js/learn.js?1752144748"></script>
+    <script src="/js/hugo-learn.js?1752144748"></script>
 
-    <link href="/mermaid/mermaid.css?1752055692" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752055692"></script>
+    <link href="/mermaid/mermaid.css?1752144748" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752144748"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

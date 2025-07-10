@@ -52,7 +52,7 @@ pre : " <b> 1. </b> "
       <li>Stable internet connection.</li>
       <li>Basic knowledge of AWS and command line operations.</li>
     </ul>
-    <div style="font-size: 17px;"><strong>Estimated Cost:</strong>Approximately from <strong>20$</strong> to <strong>30$</strong></div>
+    <div style="font-size: 17px;"><strong>Estimated Cost:</strong> Approximately from <strong>20$</strong> to <strong>30$</strong></div>
   
 </div>
 

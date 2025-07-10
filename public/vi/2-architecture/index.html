@@ -12,21 +12,21 @@
     <title>Công cụ sử dụng và Kiến trúc :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752055692" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752055692" rel="stylesheet">
-    <link href="/css/hybrid.css?1752055692" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752055692" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752055692" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752055692" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752055692" rel="stylesheet">
-    <link href="/css/theme.css?1752055692" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752055692" rel="stylesheet">
+    <link href="/css/nucleus.css?1752144748" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752144748" rel="stylesheet">
+    <link href="/css/hybrid.css?1752144748" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752144748" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752144748" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752144748" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752144748" rel="stylesheet">
+    <link href="/css/theme.css?1752144748" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752144748" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752055692" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752144748" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752055692"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752144748"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752055692"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752055692"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752144748"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752144748"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752055692"></script>
+<script type="text/javascript" src="/js/search.js?1752144748"></script>
 
     
   </div>
@@ -411,13 +411,13 @@
  
   
     
-    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="" class="dd-item 
+    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="Trực quan hóa với Amazon QuickSight" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-analysis-visualization/4.2-quicksight/">
-          
+           <b> 4.2 </b> Trực quan hóa với Amazon QuickSight
           
             <i class="fas fa-check read-icon"></i>
           
@@ -446,13 +446,13 @@
  
   
     
-    <li data-nav-id="/vi/5-cleanup/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-cleanup/">
-          
+           <b> 5. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -472,13 +472,13 @@
  
   
     
-    <li data-nav-id="/vi/6-in-conclusion/" title="" class="dd-item 
+    <li data-nav-id="/vi/6-in-conclusion/" title="Kết luận" class="dd-item 
         
         
         
         ">
       <a href="/vi/6-in-conclusion/">
-          
+           <b> 6. </b> Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -672,9 +672,20 @@
 
 
 	<p>Hệ thống ETL thời tiết được xây dựng trên nền tảng AWS, kết hợp với các công cụ mã nguồn mở như Python và Apache Airflow. Dữ liệu thời tiết được lấy từ OpenWeather API, xử lý bởi script Python và điều phối bằng Airflow (MWAA). Dữ liệu thô được lưu tạm vào Amazon S3, sau đó được AWS Glue xử lý và chuẩn hóa trước khi nạp vào kho dữ liệu Amazon Redshift. Cuối cùng, Amazon QuickSight được dùng để trực quan hóa dữ liệu phục vụ phân tích. Toàn bộ hạ tầng được triển khai tự động qua CloudFormation và bảo mật bởi IAM, VPC, và Secrets Manager. Sơ đồ kiến trúc thể hiện rõ luồng dữ liệu và vai trò của từng thành phần trong hệ thống.</p>
+
+<div class="notices note" ><p>Được thực hiện trong vùng <strong>United States(N.Virginia) - us-east-1</strong></p>
+</div>
+
+<p><img alt="Region" src="/images/2.architecture/region.png"></p>
 <h4 id="nội-dung-chính">Nội dung chính:</h4>
 <p>2.1 <a href="/vi/2-architecture/2.1-tools/">Các công cụ sử dụng</a></p>
 <p>2.2 <a href="/vi/2-architecture/2.2-architecture/">Sơ đồ kiến trúc</a></p>
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>
 
 
 
@@ -969,19 +980,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752055692"></script>
-    <script src="/js/jquery.sticky.js?1752055692"></script>
-    <script src="/js/featherlight.min.js?1752055692"></script>
-    <script src="/js/highlight.pack.js?1752055692"></script>
+    <script src="/js/clipboard.min.js?1752144748"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752144748"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752144748"></script>
+    <script src="/js/jquery.sticky.js?1752144748"></script>
+    <script src="/js/featherlight.min.js?1752144748"></script>
+    <script src="/js/highlight.pack.js?1752144748"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752055692"></script>
-    <script src="/js/learn.js?1752055692"></script>
-    <script src="/js/hugo-learn.js?1752055692"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752144748"></script>
+    <script src="/js/learn.js?1752144748"></script>
+    <script src="/js/hugo-learn.js?1752144748"></script>
 
-    <link href="/mermaid/mermaid.css?1752055692" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752055692"></script>
+    <link href="/mermaid/mermaid.css?1752144748" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752144748"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

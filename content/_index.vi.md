@@ -43,3 +43,10 @@ Dữ liệu chỉ đủ để phân tích, nếu nhiều hơn có thể phát si
    - [Trực quan hóa với AWS Quicksight](4-analysis-visualization/4.2-quicksight/)
 5. [Dọn dẹp tài nguyên](5-cleanup/)
 6. [Kết luận](6-in-conclusion/)
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

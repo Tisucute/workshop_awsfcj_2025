@@ -92,7 +92,7 @@ with DAG(
     # Task 1: Lấy dữ liệu từ API, đẩy lên XCom
     extract_api_data = PythonOperator(
         task_id='extract_api_data',
-        python_callable=extract_openweather_data,
+        python_callable=extract_openweather_data, #Hàm được định nghĩa trong file code
         provide_context=True
     )
 

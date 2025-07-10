@@ -49,3 +49,10 @@ Sử dụng AWS CloudFormation để triển khai toàn bộ tài nguyên cần 
 3.3  [Thiết lập biến, tạo kết nối và upload môi trường](3-etl-process/3.3-setup-variables-connection/)
 
 3.4 [Quá trình thực hiện ETL](3-etl-process/3.4-etl-execution/)
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

@@ -8,35 +8,42 @@ pre : " <b> 3.2 </b> "
 Phần này mô tả chi tiết cách sử dụng AWS CloudFormation để tự động khởi tạo và quản lý toàn bộ hạ tầng cần thiết cho pipeline ETL.
 
 ### 1. Giới thiệu template
-- File: **template-workshop-anhthu.yaml**
+File: **template-workshop-anhthu.yaml**
 
-- Mục đích: Định nghĩa toàn bộ tài nguyên AWS dưới dạng code, bao gồm:
+Mục đích: Định nghĩa toàn bộ tài nguyên AWS dưới dạng code, bao gồm:
 
-- S3 Buckets:
+**1.1 MWAA Environment (Airflow)**
 
-    - Buckets để lưu DAGs & requirements cho MWAA.
+  - S3 bucket để lưu DAGs, code (AirflowEnvironmentBucket).
 
-    - Buckets để lưu dữ liệu thô (raw data).
+  - MWAA Environment (MwaaEnvironment).
 
-- IAM Roles & Policies:
+  - IAM Role cho MWAA (MwaaExecutionRole).
 
-    - Role cho MWAA (đọc DAG, ghi S3, submit Glue).
+  - Các subnet, VPC, security group, NAT gateway, route table, v.v.
 
-    - Role cho Glue (đọc S3, ghi Redshift).
+**1.2 Redshift Cluster**
 
-- VPC & Networking:
+  - Redshift Cluster (RedshiftCluster).
 
-    - VPC, Subnets, Security Groups cho MWAA, Glue và Redshift.
+  - Redshift Subnet Group, Parameter Group.
 
-- MWAA Environment: tham chiếu tới S3, IAM Role, network.
+  - IAM Role cho Redshift (RedshiftIamRole).
 
-- AWS Glue Resources: Connection đến Redshift, (tùy chọn) Crawler, Job definition.
+  - Secrets Manager để lưu thông tin đăng nhập Redshift (RedshiftCreds).
 
-- Amazon Redshift Cluster: cấu hình node type, node count, database, parameter group.
+  - S3 bucket tạm cho Redshift (RedshiftTempDataBucket).
 
-- Secrets Manager: lưu trữ OpenWeather API key và credentials Redshift.
+**1.3 Glue Connection**
 
-- Outputs: Endpoint của Redshift, tên buckets, ARN của Roles.
+  - Kết nối Glue tới Redshift (GlueRedshiftConnection).
+
+  - Không tạo Glue Job.
+
+**1.4 Các thành phần mạng và bảo mật**
+
+- VPC, subnet, security group, route table, NAT gateway, VPC endpoint cho S3
+
 
 Mẫu template này áp dụng chuẩn YAML cho CloudFormation, giúp versioning, review và reuse dễ dàng.
 
@@ -49,16 +56,28 @@ Trước khi deploy, bạn cần kiểm tra và thay thế các giá trị sau t
 Chọn đúng lớp node (node class) và số lượng node, vùng có giá phù hợp khối lượng dữ liệu.
 {{% /notice %}}
 
-
+**Ví dụ như:**
+![Region](/images/3.etl-process/3.2.infra-as-code/chu_y_tai_su_dung.png)
 ### 3. Các bước triển khai (Deployment)
 
 #### Bước 1: Tạo CloudFormation Stack
 1. Đăng nhập AWS Console → chọn **CloudFormation**.  
-2. Chọn **Create stack** → **With new resources (standard)**.  
-3. Chọn **Upload a template file**, tải lên `template-workshop-anhthu.yaml`.  
+    - Chọn **Create stack** 
+![Tạo Stack](/images/3.etl-process/3.2.infra-as-code/tao_stack.png)
+    - Chọn **Choose an existing template**.
+    - Chọn **Upload a template file**, tải lên `template-workshop-anhthu.yaml`.  
+![Step1](/images/3.etl-process/3.2.infra-as-code/step_1_stack.png)
+2. Nhấn **Next**.
+    - Điền tên của stack **data-workshop-anhthu**.
+![Step2](/images/3.etl-process/3.2.infra-as-code/step_2_stack.png)
+3. Nhấn **Next**.
+    - Chọn **I acknowledge that AWS CloudFormation might create IAM resources**.  
+![Step3](/images/3.etl-process/3.2.infra-as-code/step_3_stack.png)
 4. Nhấn **Next**.
+    - Kiểm tra lại kĩ các nội dung và chọn **Submit**.
+![Step4](/images/3.etl-process/3.2.infra-as-code/submit.png)
 5. Nhấn **Next** qua phần **Options** (tuỳ chọn thêm Tags).  
-6. Chọn “I acknowledge that AWS CloudFormation might create IAM resources”.  
+6. 
 7. Nhấn **Create stack** và theo dõi tab **Events** đến khi trạng thái là **CREATE_COMPLETE**.
 
 #### Bước 2: Kiểm tra tài nguyên đã tạo
@@ -82,3 +101,11 @@ Tạo bao nhiêu check bấy nhiêu để lúc làm **không bị thiếu môi t
 {{% /notice %}}
 
 #### Bước 3: Kết nối và kiểm thử Redshift
+
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

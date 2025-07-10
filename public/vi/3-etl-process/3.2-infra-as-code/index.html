@@ -12,21 +12,21 @@
     <title>Triển khai hạ tầng bằng mã nguồn :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1752055692" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1752055692" rel="stylesheet">
-    <link href="/css/hybrid.css?1752055692" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1752055692" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1752055692" rel="stylesheet">
-    <link href="/css/auto-complete.css?1752055692" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1752055692" rel="stylesheet">
-    <link href="/css/theme.css?1752055692" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1752055692" rel="stylesheet">
+    <link href="/css/nucleus.css?1752144748" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1752144748" rel="stylesheet">
+    <link href="/css/hybrid.css?1752144748" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1752144748" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1752144748" rel="stylesheet">
+    <link href="/css/auto-complete.css?1752144748" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1752144748" rel="stylesheet">
+    <link href="/css/theme.css?1752144748" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1752144748" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1752055692" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1752144748" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1752055692"></script>
+    <script src="/js/jquery-3.3.1.min.js?1752144748"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1752055692"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1752055692"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1752144748"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1752144748"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1752055692"></script>
+<script type="text/javascript" src="/js/search.js?1752144748"></script>
 
     
   </div>
@@ -411,13 +411,13 @@
  
   
     
-    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="" class="dd-item 
+    <li data-nav-id="/vi/4-analysis-visualization/4.2-quicksight/" title="Trực quan hóa với Amazon QuickSight" class="dd-item 
         
         
         
         ">
       <a href="/vi/4-analysis-visualization/4.2-quicksight/">
-          
+           <b> 4.2 </b> Trực quan hóa với Amazon QuickSight
           
             <i class="fas fa-check read-icon"></i>
           
@@ -446,13 +446,13 @@
  
   
     
-    <li data-nav-id="/vi/5-cleanup/" title="" class="dd-item 
+    <li data-nav-id="/vi/5-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
         
         
         
         ">
       <a href="/vi/5-cleanup/">
-          
+           <b> 5. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -472,13 +472,13 @@
  
   
     
-    <li data-nav-id="/vi/6-in-conclusion/" title="" class="dd-item 
+    <li data-nav-id="/vi/6-in-conclusion/" title="Kết luận" class="dd-item 
         
         
         
         ">
       <a href="/vi/6-in-conclusion/">
-          
+           <b> 6. </b> Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -669,56 +669,53 @@
 
 	<p>Phần này mô tả chi tiết cách sử dụng AWS CloudFormation để tự động khởi tạo và quản lý toàn bộ hạ tầng cần thiết cho pipeline ETL.</p>
 <h3 id="1-giới-thiệu-template">1. Giới thiệu template</h3>
-<ul>
-<li>
 <p>File: <strong>template-workshop-anhthu.yaml</strong></p>
-</li>
-<li>
 <p>Mục đích: Định nghĩa toàn bộ tài nguyên AWS dưới dạng code, bao gồm:</p>
-</li>
-<li>
-<p>S3 Buckets:</p>
+<p><strong>1.1 MWAA Environment (Airflow)</strong></p>
 <ul>
 <li>
-<p>Buckets để lưu DAGs &amp; requirements cho MWAA.</p>
+<p>S3 bucket để lưu DAGs, code (AirflowEnvironmentBucket).</p>
 </li>
 <li>
-<p>Buckets để lưu dữ liệu thô (raw data).</p>
+<p>MWAA Environment (MwaaEnvironment).</p>
+</li>
+<li>
+<p>IAM Role cho MWAA (MwaaExecutionRole).</p>
+</li>
+<li>
+<p>Các subnet, VPC, security group, NAT gateway, route table, v.v.</p>
 </li>
 </ul>
-</li>
-<li>
-<p>IAM Roles &amp; Policies:</p>
+<p><strong>1.2 Redshift Cluster</strong></p>
 <ul>
 <li>
-<p>Role cho MWAA (đọc DAG, ghi S3, submit Glue).</p>
+<p>Redshift Cluster (RedshiftCluster).</p>
 </li>
 <li>
-<p>Role cho Glue (đọc S3, ghi Redshift).</p>
+<p>Redshift Subnet Group, Parameter Group.</p>
+</li>
+<li>
+<p>IAM Role cho Redshift (RedshiftIamRole).</p>
+</li>
+<li>
+<p>Secrets Manager để lưu thông tin đăng nhập Redshift (RedshiftCreds).</p>
+</li>
+<li>
+<p>S3 bucket tạm cho Redshift (RedshiftTempDataBucket).</p>
 </li>
 </ul>
-</li>
-<li>
-<p>VPC &amp; Networking:</p>
+<p><strong>1.3 Glue Connection</strong></p>
 <ul>
-<li>VPC, Subnets, Security Groups cho MWAA, Glue và Redshift.</li>
+<li>
+<p>Kết nối Glue tới Redshift (GlueRedshiftConnection).</p>
+</li>
+<li>
+<p>Không tạo Glue Job.</p>
+</li>
 </ul>
-</li>
-<li>
-<p>MWAA Environment: tham chiếu tới S3, IAM Role, network.</p>
-</li>
-<li>
-<p>AWS Glue Resources: Connection đến Redshift, (tùy chọn) Crawler, Job definition.</p>
-</li>
-<li>
-<p>Amazon Redshift Cluster: cấu hình node type, node count, database, parameter group.</p>
-</li>
-<li>
-<p>Secrets Manager: lưu trữ OpenWeather API key và credentials Redshift.</p>
-</li>
-<li>
-<p>Outputs: Endpoint của Redshift, tên buckets, ARN của Roles.</p>
-</li>
+<p><strong>1.4 Các thành phần mạng và bảo mật</strong></p>
+<ul>
+<li>VPC, subnet, security group, route table, NAT gateway, VPC endpoint cho S3</li>
 </ul>
 <p>Mẫu template này áp dụng chuẩn YAML cho CloudFormation, giúp versioning, review và reuse dễ dàng.</p>
 <h3 id="2-những-chỗ-cần-chú-ý-khi-tái-sử-dụng-code">2. Những chỗ cần chú ý khi <strong>tái sử dụng code</strong></h3>
@@ -730,15 +727,40 @@
 <div class="notices warning" ><p>Chọn đúng lớp node (node class) và số lượng node, vùng có giá phù hợp khối lượng dữ liệu.</p>
 </div>
 
+<p><strong>Ví dụ như:</strong>
+<img alt="Region" src="/images/3.etl-process/3.2.infra-as-code/chu_y_tai_su_dung.png"></p>
 <h3 id="3-các-bước-triển-khai-deployment">3. Các bước triển khai (Deployment)</h3>
 <h4 id="bước-1-tạo-cloudformation-stack">Bước 1: Tạo CloudFormation Stack</h4>
 <ol>
-<li>Đăng nhập AWS Console → chọn <strong>CloudFormation</strong>.</li>
-<li>Chọn <strong>Create stack</strong> → <strong>With new resources (standard)</strong>.</li>
-<li>Chọn <strong>Upload a template file</strong>, tải lên <code>template-workshop-anhthu.yaml</code>.</li>
-<li>Nhấn <strong>Next</strong>.</li>
+<li>Đăng nhập AWS Console → chọn <strong>CloudFormation</strong>.
+<ul>
+<li>Chọn <strong>Create stack</strong>
+<img alt="Tạo Stack" src="/images/3.etl-process/3.2.infra-as-code/tao_stack.png"></li>
+<li>Chọn <strong>Choose an existing template</strong>.</li>
+<li>Chọn <strong>Upload a template file</strong>, tải lên <code>template-workshop-anhthu.yaml</code>.<br>
+<img alt="Step1" src="/images/3.etl-process/3.2.infra-as-code/step_1_stack.png"></li>
+</ul>
+</li>
+<li>Nhấn <strong>Next</strong>.
+<ul>
+<li>Điền tên của stack <strong>data-workshop-anhthu</strong>.
+<img alt="Step2" src="/images/3.etl-process/3.2.infra-as-code/step_2_stack.png"></li>
+</ul>
+</li>
+<li>Nhấn <strong>Next</strong>.
+<ul>
+<li>Chọn <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong>.<br>
+<img alt="Step3" src="/images/3.etl-process/3.2.infra-as-code/step_3_stack.png"></li>
+</ul>
+</li>
+<li>Nhấn <strong>Next</strong>.
+<ul>
+<li>Kiểm tra lại kĩ các nội dung và chọn <strong>Submit</strong>.
+<img alt="Step4" src="/images/3.etl-process/3.2.infra-as-code/submit.png"></li>
+</ul>
+</li>
 <li>Nhấn <strong>Next</strong> qua phần <strong>Options</strong> (tuỳ chọn thêm Tags).</li>
-<li>Chọn “I acknowledge that AWS CloudFormation might create IAM resources”.</li>
+<li></li>
 <li>Nhấn <strong>Create stack</strong> và theo dõi tab <strong>Events</strong> đến khi trạng thái là <strong>CREATE_COMPLETE</strong>.</li>
 </ol>
 <h4 id="bước-2-kiểm-tra-tài-nguyên-đã-tạo">Bước 2: Kiểm tra tài nguyên đã tạo</h4>
@@ -781,7 +803,12 @@
 </div>
 
 <h4 id="bước-3-kết-nối-và-kiểm-thử-redshift">Bước 3: Kết nối và kiểm thử Redshift</h4>
-
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>
 
 
 
@@ -1079,19 +1106,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.min.js?1752055692"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1752055692"></script>
-    <script src="/js/jquery.sticky.js?1752055692"></script>
-    <script src="/js/featherlight.min.js?1752055692"></script>
-    <script src="/js/highlight.pack.js?1752055692"></script>
+    <script src="/js/clipboard.min.js?1752144748"></script>
+    <script src="/js/perfect-scrollbar.min.js?1752144748"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1752144748"></script>
+    <script src="/js/jquery.sticky.js?1752144748"></script>
+    <script src="/js/featherlight.min.js?1752144748"></script>
+    <script src="/js/highlight.pack.js?1752144748"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1752055692"></script>
-    <script src="/js/learn.js?1752055692"></script>
-    <script src="/js/hugo-learn.js?1752055692"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1752144748"></script>
+    <script src="/js/learn.js?1752144748"></script>
+    <script src="/js/hugo-learn.js?1752144748"></script>
 
-    <link href="/mermaid/mermaid.css?1752055692" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1752055692"></script>
+    <link href="/mermaid/mermaid.css?1752144748" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1752144748"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

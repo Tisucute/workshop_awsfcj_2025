@@ -33,3 +33,10 @@ pre : " <b> 5. </b> "
 - Vào Airflow UI đảm bảo không còn DAG hiển thị  
 - Vào Redshift Console đảm bảo cluster do CF tạo (nếu có) đã bị xóa hoặc không còn  
 - Check kĩ lại các security group để đảm bảo xóa không thiếu bất cứ dịch vụ nào.
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>

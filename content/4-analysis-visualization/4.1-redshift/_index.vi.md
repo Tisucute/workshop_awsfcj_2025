@@ -26,3 +26,10 @@ pre : " <b> 4.1 </b> "
 ```
 
 **Tóm lại**, với Amazon Redshift bạn có thể chạy các truy vấn phân tích dữ liệu thời gian thực, tận dụng tính năng phân phối, sắp xếp và vật liệu hóa để tối ưu chi phí và hiệu năng.
+
+<!-- logo bên dưới -->
+<div style="position: bottom; height: 100px;">
+  <div style="position: absolute; bottom: 10px; right: 10px; display: flex; gap: 20px; align-items: end;">
+  <img src="/images/1.introduction/logo_aws.jpg" alt="AWS Logo" style="height: 100px;">
+  </div>
+</div>
